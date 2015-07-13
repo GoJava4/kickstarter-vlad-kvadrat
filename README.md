@@ -1,0 +1,3 @@
+#"Kickstarter" - GoIT course project
+
+

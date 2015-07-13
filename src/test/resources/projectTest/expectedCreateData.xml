@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <categories name="name 1"/>
+    <categories name="name 2"/>
+
+    <projects name="name 1"
+              short_description="Short Descr 1"
+              current_money="1000"
+              need_money="5000"
+              days_left="30"
+              history="history 1"
+              url_video="Video Url 1"
+              category_id="1"/>
+    <projects name="name 2"
+              short_description="Short Descr 2"
+              current_money="500"
+              need_money="1000"
+              days_left="30"
+              history="history 2"
+              url_video="Video Url 2"
+              category_id="1"/>
+    <projects name="name 3"
+              short_description="Short Descr 3"
+              current_money="800"
+              need_money="19000"
+              days_left="30"
+              history="history 3"
+              url_video="Video Url 3"
+              category_id="2"/>
+    <projects name="name 4"
+              short_description="Short Descr 4"
+              current_money="600"
+              need_money="2000"
+              days_left="30"
+              history="history 4"
+              url_video="Video Url 4"
+              category_id="2"/>
+    <projects name="New Name"
+              short_description="New Short Description"
+              current_money="1000"
+              need_money="16000"
+              days_left="45"
+              history="New History"
+              url_video="New Video Url"
+              category_id="1"/>
+
+
+</dataset>

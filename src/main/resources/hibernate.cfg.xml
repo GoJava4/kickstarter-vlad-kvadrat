@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">true</property>
+        <mapping class="com.morkva.entities.UserRole"/>
+        <mapping class="com.morkva.entities.User"/>
+        <mapping class="com.morkva.entities.PaymentStatus"/>
+        <mapping class="com.morkva.entities.Payment"/>
+        <mapping class="com.morkva.entities.Quote"/>
+        <mapping class="com.morkva.entities.Answer"/>
+        <mapping class="com.morkva.entities.Category"/>
+        <mapping class="com.morkva.entities.Comment"/>
+        <mapping class="com.morkva.entities.FullDescription"/>
+        <mapping class="com.morkva.entities.PaymentBonus"/>
+        <mapping class="com.morkva.entities.Picture"/>
+        <mapping class="com.morkva.entities.Project"/>
+        <mapping class="com.morkva.entities.Question"/>
+    </session-factory>
+</hibernate-configuration>

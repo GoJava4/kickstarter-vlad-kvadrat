@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <categories id="1" name="name 1"/>
+
+    <projects id="1"
+              name="name 1"
+              short_description="Short Descr 1"
+              current_money="1000"
+              need_money="5000"
+              days_left="30"
+              history="history 1"
+              url_video="Video Url 1"
+              category_id="1"/>
+    <projects id="2"
+              name="name 2"
+              short_description="Short Descr 2"
+              current_money="500"
+              need_money="1000"
+              days_left="30"
+              history="history 2"
+              url_video="Video Url 2"
+              category_id="1"/>
+
+    <payment_options id="1"
+                     description="Description 1"
+                     value="100"
+                     project_id="1"/>
+
+    <payment_options id="2"
+                     description="Description 2"
+                     value="200"
+                     project_id="1"/>
+
+    <payment_options id="3"
+                     description="Description 3"
+                     value="500"
+                     project_id="1"/>
+
+    <!--Deleted payment option with id 4-->
+</dataset>
