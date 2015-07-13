@@ -2,27 +2,10 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
              xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:context='http://www.springframework.org/schema/context'
              xsi:schemaLocation="http://www.springframework.org/schema/beans
                  http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-                 http://www.springframework.org/schema/context
-                 http://www.springframework.org/schema/context/spring-context.xsd
                  http://www.springframework.org/schema/security
                  http://www.springframework.org/schema/security/spring-security-4.0.xsd">
-
-    <!--<beans:bean id="roleVoter" class="org.springframework.security.access.vote.RoleHierarchyVoter">-->
-        <!--<beans:constructor-arg ref="roleHierarchy" />-->
-    <!--</beans:bean>-->
-
-    <!--<beans:bean id="roleHierarchy"-->
-                <!--class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">-->
-        <!--<beans:property name="hierarchy">-->
-            <!--<beans:value>-->
-                <!--ROLE_ADMIN > ROLE_USER-->
-                <!--ROLE_USER > ROLE_ANONYMOUS-->
-            <!--</beans:value>-->
-        <!--</beans:property>-->
-    <!--</beans:bean>-->
 
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/categories" access="permitAll"/>
@@ -31,8 +14,7 @@
         <intercept-url pattern="/project*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <logout logout-url="/logout"
                 logout-success-url="/categories"/>
-        <!-- SO FUN =) -->
-        <form-login authentication-failure-url="http://cdn.alltheragefaces.com/img/faces/large/fuck-yeah-gtfo-l.png"/>
+        <form-login authentication-failure-url="http://cdn.alltheragefaces.com/img/faces/large/fuck-yeah-gtfo-l.png" />
         <anonymous username="guest"
                    granted-authority="ROLE_ANONYMOUS"/>
         <csrf disabled="true"/>
@@ -41,23 +23,11 @@
 
     <global-method-security secured-annotations="enabled" proxy-target-class="true"/>
 
-    <!--<authentication-manager>-->
-        <!--<authentication-provider>-->
-            <!--<user-service>-->
-                <!--<user name="admin" password="admin" authorities="ROLE_ADMIN"/>-->
-                <!--<user name="user" password="user" authorities="ROLE_USER"/>-->
-            <!--</user-service>-->
-        <!--</authentication-provider>-->
-    <!--</authentication-manager>-->
-
     <beans:bean id="userDetailsService" class="com.morkva.services.UserDetailsServiceImpl"/>
 
     <authentication-manager>
         <authentication-provider user-service-ref="userDetailsService"/>
     </authentication-manager>
-
-    <!--<beans:bean id="webSecurityExpressionHandler"-->
-                <!--class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />-->
 
 </beans:beans>
 
