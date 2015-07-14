@@ -5,9 +5,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by koros on 06.07.2015.
- */
 @Component
 public abstract class AbstractDao<T> implements Dao<T> {
 

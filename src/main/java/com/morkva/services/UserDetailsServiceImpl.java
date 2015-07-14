@@ -13,13 +13,17 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 import java.util.LinkedList;
 
+/**
+ * Created by koros on 11.07.2015.
+ */
 @Service("userDetailsService")
 @Transactional
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsServiceExtended {
 
     @Autowired
     private UserDao userDao;
 
+    @Override
     public User getUserByLogin(String login) {
         return userDao.getByLogin(login);
     }
@@ -27,9 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Assembler assembler = new Assembler();
-        System.out.println("USER DAO = " + userDao);
         User user = userDao.getByLogin(s);
-        System.out.println("USER = " + user);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
@@ -46,7 +48,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             boolean accountNonLocked = userEntity.isActive();
             Collection<SimpleGrantedAuthority> authorities = new LinkedList<>();
             authorities.add(new SimpleGrantedAuthority(userEntity.getRole().getName()));
-            return new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+            org.springframework.security.core.userdetails.User user = new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+            return user;
         }
     }
 }
