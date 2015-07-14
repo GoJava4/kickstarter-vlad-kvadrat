@@ -1,8 +1,5 @@
 package com.morkva.model.dao;
 
-/**
- * Created by koros on 29.06.2015.
- */
 public interface Dao<T> {
 
     void create(T entity);
