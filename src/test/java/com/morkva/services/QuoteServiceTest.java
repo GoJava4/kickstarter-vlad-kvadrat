@@ -9,9 +9,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-/**
- * Created by koros on 30.06.2015.
- */
 public class QuoteServiceTest {
 
     @Mock
