@@ -5,9 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by vladyslav on 30.04.15.
- */
 @Entity
 @Table(name = "quotes")
 public class Quote {

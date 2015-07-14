@@ -2,9 +2,6 @@ package com.morkva.entities;
 
 import javax.persistence.*;
 
-/**
- * Created by koros on 11.07.2015.
- */
 @Entity
 @Table(name = "users")
 public class User {
