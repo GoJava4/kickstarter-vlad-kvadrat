@@ -9,57 +9,70 @@
               short_description="Short Descr 1"
               current_money="1000"
               need_money="5000"
-              days_left="30"
-              history="history 1"
-              url_video="Video Url 1"
-              category_id="1"/>
-    <projects id="2"
-              name="name 2"
-              short_description="Short Descr 2"
-              current_money="500"
-              need_money="1000"
-              days_left="30"
-              history="history 2"
-              url_video="Video Url 2"
-              category_id="1"/>
-    <projects id="3"
-              name="name 3"
-              short_description="Short Descr 3"
-              current_money="800"
-              need_money="19000"
-              days_left="30"
-              history="history 3"
-              url_video="Video Url 3"
-              category_id="2"/>
-    <projects id="4"
-              name="name 4"
-              short_description="Short Descr 4"
-              current_money="600"
-              need_money="2000"
-              days_left="30"
-              history="history 4"
-              url_video="Video Url 4"
-              category_id="2"/>
+              adding_date="10-11-2014 10:10:10"
+              ending_date="30-11-2014 00:00:00"
+              category_id="1"
+              user_id="1"
+              full_description_id="1"
+              successfully_finished="1"/>
 
-    <payment_options id="1"
-                     description="Description 1"
-                     value="100"
-                     project_id="1"/>
+     <user_roles id="1"
+                name="role_name 1"/>
 
-    <payment_options id="2"
-                     description="Description 2"
-                     value="200"
-                     project_id="1"/>
+    <users id="1"
+          login="login 1"
+          password="password 1"
+          email="email 1"
+          personal_info="personal_info 1"
+          role_id="1"
+          username="username 1"
+          active="1"/>
 
-    <payment_options id="3"
-                     description="Description 3"
-                     value="500"
-                     project_id="1"/>
+    <questions id="1"
+              question="question 1"
+              date="10-11-2014 10:00:10"
+              project_id="1"
+              user_id="1"/>
 
-    <payment_options id="4"
-                     description="Description 4"
-                     value="300"
-                     project_id="2"/>
+    <answers id="1"
+             answer="answer 1"
+             date="10-11-2014 10:10:10"
+             question_id="1"
+             user_id="1"/>
+
+    <commentaries id="1"
+                  comment="comment 1"
+                  date="9-11-2014 10:00:10"
+                  project_id="1"
+                  user_id="1"/>
+
+    <full_descriptions id="1"
+                       value="full_description 1"/>
+    <full_descriptions id="2"
+                       value="full_description 2"/>
+
+    <payment_statuses id="1"
+                      status="payment_status"/>
+
+    <payments id="1"
+              amount="10"
+              date="9-11-2014 10:09:10"
+              project_id="1"
+              status_id="1"
+              user_id="1"/>
+
+    <payment_bonuses id="1"
+                     full_description_id="2"
+                     min_money="100"
+                     project_id="1"
+                     bonuses_left="10"/>
+
+    <pictures id="1"
+              image="10"/>
+    <pictures id="2"
+              image="10"/>
+    <pictures id="3"
+              image="10"/>
 
     <quotes id="1" value="value 1" author="author 1"/>
     <quotes id="2" value="value 2" author="author 2"/>

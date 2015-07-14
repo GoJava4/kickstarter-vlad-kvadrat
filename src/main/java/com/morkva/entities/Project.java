@@ -3,10 +3,6 @@ package com.morkva.entities;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by vladyslav on 02.05.15.
- */
-
 @Entity
 @Table(name = "projects")
 public class Project {
