@@ -4,76 +4,19 @@
     <categories id="2" name="name 2"/>
     <categories id="3" name="name 3"/>
 
-    <projects id="1"
-              name="name 1"
-              short_description="Short Descr 1"
-              current_money="1000"
-              need_money="5000"
-              adding_date='10-11-2014'
-              ending_date='30-11-2014'
-              category_id="1"
-              user_id="1"
-              full_description_id="1"
-              successfully_finished="1"/>
-    <projects id="2"
-              name="name 2"
-              short_description="Short Descr 2"
-              current_money="2000"
-              need_money="5200"
-              adding_date="10-12-2014"
-              ending_date="30-12-2014"
-              category_id="2"
-              user_id="2"
-              full_description_id="3"
-              successfully_finished="1"/>
-    <projects id="3"
-              name="name 3"
-              short_description="Short Descr 3"
-              current_money="3000"
-              need_money="5300"
-              adding_date="30-06-2015"
-              ending_date="30-07-2015"
-              category_id="3"
-              user_id="1"
-              full_description_id="4"
-              successfully_finished="1"/>
-    <projects id="4"
-              name="name 4"
-              short_description="Short Descr 4"
-              current_money="4000"
-              need_money="45000"
-              adding_date="14-07-2015"
-              ending_date="14-12-2015"
-              category_id="1"
-              user_id="1"
-              full_description_id="5"
-              successfully_finished="1"/>
-    <projects id="5"
-              name="name 5"
-              short_description="Short Descr 5"
-              current_money="5000"
-              need_money="45500"
-              adding_date="14-07-2015"
-              ending_date="14-12-2055"
-              category_id="1"
-              user_id="3"
-              full_description_id="7"
-              successfully_finished="1"/>
-
-
     <user_roles id="1"
                 name="role_name 2"/>
     <user_roles id="2"
                 name="role_name 2"/>
 
     <users id="1"
-          login="login 1"
-          password="password 1"
-          email="email 1"
-          personal_info="personal_info 1"
-          role_id="1"
-          username="username 1"
-          active="1"/>
+           login="login 1"
+           password="password 1"
+           email="email 1"
+           personal_info="personal_info 1"
+           role_id="1"
+           username="username 1"
+           active="1"/>
     <users id="2"
            login="login 2"
            password="password 2"
@@ -91,68 +34,20 @@
            username="username 3"
            active="1"/>
 
-    <questions id="1"
-              question="question 1"
-              date='10-11-2014'
-              project_id="1"
-              user_id="3"/>
-    <questions id="2"
-               question="question 2"
-               date='10-11-2014'
-               project_id="2"
-               user_id="3"/>
-    <questions id="3"
-               question="question 3"
-               date='10-11-2014'
-               project_id="1"
-               user_id="3"/>
-
-    <answers id="1"
-             answer="answer 1"
-             date='10-11-2014'
-             question_id="1"
-             user_id="1"/>
-    <answers id="2"
-             answer="answer 2"
-             date='10-11-2014'
-             question_id="2"
-             user_id="2"/>
-
-    <comments id="1"
-                  comment="comment 1"
-                  date="9-11-2014"
-                  project_id="1"
-                  user_id="3"/>
-    <comments id="2"
-                  comment="comment 2"
-                  date="9-11-2014"
-                  project_id="1"
-                  user_id="2"/>
-    <comments id="3"
-                  comment="comment 3"
-                  date="9-11-2014"
-                  project_id="1"
-                  user_id="3"/>
-    <comments id="4"
-                  comment="comment 4"
-                  date="9-11-2014"
-                  project_id="1"
-                  user_id="3"/>
-
     <full_descriptions id="1"
-                       value="full_description 1"/>
+                       full_description="full_description 1"/>
     <full_descriptions id="2"
-                       value="full_description 2"/>
+                       full_description="full_description 2"/>
     <full_descriptions id="3"
-                       value="full_description 3"/>
+                       full_description="full_description 3"/>
     <full_descriptions id="4"
-                       value="full_description 4"/>
+                       full_description="full_description 4"/>
     <full_descriptions id="5"
-                       value="full_description 5"/>
+                       full_description="full_description 5"/>
     <full_descriptions id="6"
-                       value="full_description 6"/>
+                       full_description="full_description 6"/>
     <full_descriptions id="7"
-                       value="full_description 7"/>
+                       full_description="full_description 7"/>
 
     <payment_statuses id="1"
                       status="payment_status 1"/>
@@ -163,32 +58,130 @@
     <payment_statuses id="4"
                       status="payment_status 4"/>
 
+    <projects id="1"
+              name="name 1"
+              short_description="Short Descr 1"
+              current_money="1000"
+              need_money="5000"
+
+              category_id="1"
+              user_id="1"
+              full_description_id="1"
+              successfully_finished="1"/>
+    <projects id="2"
+              name="name 2"
+              short_description="Short Descr 2"
+              current_money="2000"
+              need_money="5200"
+
+              category_id="2"
+              user_id="2"
+              full_description_id="3"
+              successfully_finished="1"/>
+    <projects id="3"
+              name="name 3"
+              short_description="Short Descr 3"
+              current_money="3000"
+              need_money="5300"
+
+              category_id="2"
+              user_id="1"
+              full_description_id="4"
+              successfully_finished="1"/>
+    <projects id="4"
+              name="name 4"
+              short_description="Short Descr 4"
+              current_money="4000"
+              need_money="45000"
+
+              category_id="1"
+              user_id="1"
+              full_description_id="5"
+              successfully_finished="1"/>
+    <projects id="5"
+              name="name 5"
+              short_description="Short Descr 5"
+              current_money="5000"
+              need_money="45500"
+
+              category_id="1"
+              user_id="3"
+              full_description_id="7"
+              successfully_finished="1"/>
+
     <payments id="1"
               amount="10"
-              date="9-11-2014"
               project_id="2"
               status_id="1"
               user_id="1"/>
     <payments id="2"
               amount="100"
-              date="9-11-2014"
               project_id="1"
               status_id="1"
               user_id="3"/>
     <payments id="3"
               amount="5"
-              date="9-11-2014"
+
               project_id="2"
               status_id="1"
               user_id="3"/>
 
+    <questions id="1"
+              question="question 1"
+
+              project_id="1"
+              user_id="3"/>
+    <questions id="2"
+               question="question 2"
+
+               project_id="2"
+               user_id="3"/>
+    <questions id="3"
+               question="question 3"
+
+               project_id="1"
+               user_id="3"/>
+
+    <answers id="1"
+             answer="answer 1"
+
+             question_id="1"
+             user_id="1"/>
+    <answers id="2"
+             answer="answer 2"
+
+             question_id="2"
+             user_id="2"/>
+
+    <comments id="1"
+                  comment="comment 1"
+
+                  project_id="1"
+                  user_id="3"/>
+    <comments id="2"
+                  comment="comment 2"
+
+                  project_id="1"
+                  user_id="2"/>
+    <comments id="3"
+                  comment="comment 3"
+
+                  project_id="1"
+                  user_id="3"/>
+    <comments id="4"
+                  comment="comment 4"
+
+                  project_id="1"
+                  user_id="3"/>
+
+
     <payment_bonuses id="1"
-                     full_description_id="2"
+                     bonus_full_description_id="2"
                      min_money="100"
                      project_id="1"
                      bonuses_left="10"/>
     <payment_bonuses id="2"
-                     full_description_id="6"
+                     bonus_full_description_id="6"
                      min_money="200"
                      project_id="1"
                      bonuses_left="10"/>
