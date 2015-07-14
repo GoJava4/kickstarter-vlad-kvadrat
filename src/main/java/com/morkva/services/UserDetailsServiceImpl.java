@@ -13,9 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 import java.util.LinkedList;
 
-/**
- * Created by koros on 11.07.2015.
- */
 @Service("userDetailsService")
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -49,8 +46,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             boolean accountNonLocked = userEntity.isActive();
             Collection<SimpleGrantedAuthority> authorities = new LinkedList<>();
             authorities.add(new SimpleGrantedAuthority(userEntity.getRole().getName()));
-            org.springframework.security.core.userdetails.User user = new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
-            return user;
+            return new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
         }
     }
 }

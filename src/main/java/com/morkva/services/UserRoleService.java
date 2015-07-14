@@ -5,9 +5,6 @@ import com.morkva.model.dao.UserRoleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Created by koros on 11.07.2015.
- */
 @Service("userRoleService")
 public class UserRoleService {
 
