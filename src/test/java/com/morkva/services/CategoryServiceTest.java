@@ -13,9 +13,6 @@ import java.util.LinkedList;
 
 import static org.mockito.Mockito.when;
 
-/**
- * Created by koros on 30.06.2015.
- */
 public class CategoryServiceTest {
 
     @Mock

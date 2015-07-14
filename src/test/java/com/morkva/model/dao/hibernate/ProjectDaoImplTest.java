@@ -24,9 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-/**
- * Created by koros on 06.07.2015.
- */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:application-context-test.xml"})
 @Transactional
