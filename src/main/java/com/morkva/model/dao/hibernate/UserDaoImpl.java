@@ -6,9 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by koros on 11.07.2015.
- */
 @Repository("userDao")
 public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 

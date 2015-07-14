@@ -14,9 +14,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.Collections;
 import java.util.LinkedList;
 
-/**
- * Created by koros on 30.06.2015.
- */
 public class ProjectServiceTest {
 
     @Mock

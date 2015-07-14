@@ -14,18 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-/**
- * Created by koros on 26.06.2015.
- */
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
 
     @Autowired
-    ProjectService projectService;
+    private ProjectService projectService;
 
     @Autowired
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
     @RequestMapping(value = "/{categoryId}", method = RequestMethod.GET)
     public String showCategory(ModelMap modelMap, @PathVariable String categoryId) {

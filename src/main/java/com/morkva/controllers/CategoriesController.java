@@ -8,18 +8,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Created by koros on 19.06.2015.
- */
 @Controller
 @RequestMapping("/categories")
 public class CategoriesController {
 
     @Autowired
-    QuoteService quoteService;
+    private QuoteService quoteService;
 
     @Autowired
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String showCategories(ModelMap model) {
