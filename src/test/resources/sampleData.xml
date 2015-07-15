@@ -49,15 +49,6 @@
     <full_descriptions id="7"
                        full_description="full_description 7"/>
 
-    <payment_statuses id="1"
-                      status="payment_status 1"/>
-    <payment_statuses id="2"
-                      status="payment_status 2"/>
-    <payment_statuses id="3"
-                      status="payment_status 3"/>
-    <payment_statuses id="4"
-                      status="payment_status 4"/>
-
     <projects id="1"
               name="name 1"
               short_description="Short Descr 1"
@@ -108,6 +99,15 @@
               user_id="3"
               full_description_id="7"
               successfully_finished="1"/>
+
+    <payment_statuses id="1"
+                      status="payment_status 1"/>
+    <payment_statuses id="2"
+                      status="payment_status 2"/>
+    <payment_statuses id="3"
+                      status="payment_status 3"/>
+    <payment_statuses id="4"
+                      status="payment_status 4"/>
 
     <payments id="1"
               amount="10"
@@ -171,7 +171,7 @@
     <comments id="4"
                   comment="comment 4"
 
-                  project_id="1"
+                  project_id="2"
                   user_id="3"/>
 
     <payment_bonuses id="1"
