@@ -41,6 +41,7 @@ public class ProjectController {
         List<Comment> comments = commentService.getCommentsOfProject(project);
         modelMap.addAttribute("project", project);
         modelMap.addAttribute("comments", comments);
+        //TODO add questions and answers
         return "project";
     }
 
