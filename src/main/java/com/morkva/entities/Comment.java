@@ -1,6 +1,8 @@
 package com.morkva.entities;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -21,7 +23,7 @@ public class Comment {
 
     private String comment;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     public Comment() {
@@ -65,5 +67,10 @@ public class Comment {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getDateTime() {
+        DateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sf.format(date);
     }
 }

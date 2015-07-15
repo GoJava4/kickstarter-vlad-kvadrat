@@ -13,7 +13,7 @@ public class Payment {
 
     private double amount;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     @ManyToOne
