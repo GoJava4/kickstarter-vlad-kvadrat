@@ -21,7 +21,7 @@ public class Question {
 
     private String question;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     public Question() {
