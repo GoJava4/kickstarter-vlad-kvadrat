@@ -9,9 +9,9 @@
 
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/categories" access="permitAll"/>
-        <intercept-url pattern="/category*" access="permitAll"/>
-        <intercept-url pattern="/category**" access="hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/project*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+        <intercept-url pattern="/category/*" access="permitAll"/>
+        <intercept-url pattern="/category/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/project/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <logout logout-url="/logout"
                 logout-success-url="/categories"/>
         <form-login authentication-failure-url="http://cdn.alltheragefaces.com/img/faces/large/fuck-yeah-gtfo-l.png" />
