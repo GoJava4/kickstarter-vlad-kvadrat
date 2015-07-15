@@ -183,10 +183,6 @@ public class Project {
         }
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -199,28 +195,8 @@ public class Project {
         this.currentMoney = currentMoney;
     }
 
-    public void setNeedMoney(int needMoney) {
-        this.needMoney = needMoney;
-    }
-
-    public void setAddingDate(Date addingDate) {
-        this.addingDate = addingDate;
-    }
-
-    public void setEndingDate(Date endingDate) {
-        this.endingDate = endingDate;
-    }
-
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public void setFullDescription(FullDescription fullDescription) {
-        this.fullDescription = fullDescription;
     }
 
     public void setSuccessfullyFinished(boolean successfullyFinished) {
