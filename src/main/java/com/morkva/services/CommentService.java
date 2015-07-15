@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service("commentService")
 public class CommentService {
 
-
     @Qualifier("commentDao")
     @Autowired
     private CommentDao commentDao;
