@@ -6,9 +6,13 @@ import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import com.morkva.entities.Category;
+import com.morkva.entities.FullDescription;
 import com.morkva.entities.Project;
+import com.morkva.entities.User;
 import com.morkva.model.dao.CategoryDao;
+import com.morkva.model.dao.FullDescriptionDao;
 import com.morkva.model.dao.ProjectDao;
+import com.morkva.model.dao.UserDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,10 +40,16 @@ import java.util.List;
 public class ProjectDaoImplTest {
 
     @Autowired
-    ProjectDao projectDao;
+    private ProjectDao projectDao;
 
     @Autowired
-    CategoryDao categoryDao;
+    private CategoryDao categoryDao;
+
+    @Autowired
+    private FullDescriptionDao fullDescriptionDao;
+
+    @Autowired
+    private UserDao userDao;
 
     @Test
     @Rollback(false)
@@ -50,23 +60,24 @@ public class ProjectDaoImplTest {
     )
     public void testCreate() throws Exception {
         Category category = categoryDao.getById(1);
+        FullDescription fullDescription = fullDescriptionDao.getById(7);
+        User user = userDao.getById(3);
 
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         Project project = new Project.Builder()
                 .setName("New Name")
-                .setName("New Name")
                 .setShortDescr("New Short Description")
-                .setCurrentMoney(1000)
-                .setNeedMoney(16000)
-                .setAddingDate(format.parse("2014-12-10 00:00:00"))
-                .setEndingDate(format.parse("2015-12-06 14:23:18"))
+                .setCurrentMoney(5000)
+                .setNeedMoney(45500)
                 .setCategory(category)
-//                .setFullDescription(fullDescr)
+                .setUser(user)
+                .setFullDescription(fullDescription)
                 .setSuccessfullyFinished(false)
                 .build();
         projectDao.create(project);
     }
+
     @Test
     public void testGetById() throws Exception {
         Project project = projectDao.getById(1);
@@ -82,7 +93,7 @@ public class ProjectDaoImplTest {
             table = "projects"
     )
     public void testUpdate() throws Exception {
-        Project project = projectDao.getById(4);
+        Project project = projectDao.getById(5);
         project.setName("Updated Name");
         projectDao.update(project);
     }
@@ -95,13 +106,13 @@ public class ProjectDaoImplTest {
             table = "projects"
     )
     public void testDelete() throws Exception {
-        Project project = projectDao.getById(4);
+        Project project = projectDao.getById(5);
         projectDao.delete(project);
     }
 
     @Test
     public void testGetProjectsOfCategory() throws Exception {
-        Category category = categoryDao.getById(1);
+        Category category = categoryDao.getById(2);
         List<Project> projectsOfCategory = projectDao.getProjectsOfCategory(category);
         Assert.assertTrue(projectsOfCategory.size() == 2);
     }
