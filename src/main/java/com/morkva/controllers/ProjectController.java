@@ -36,15 +36,13 @@ public class ProjectController {
 
 
     @RequestMapping(value = "{projectId}", method = RequestMethod.GET)
-    public String showProject(
-            Model model,
-            @PathVariable int projectId
-    ) {
+    public String showProject(Model model, @PathVariable int projectId) {
         Project project = projectService.getById(projectId);
         List<Comment> comments = commentService.getCommentsOfProject(project);
 
-        if (!model.containsAttribute("payment")) model.addAttribute("payment", new Payment());
-
+        if (!model.containsAttribute("payment")) {
+            model.addAttribute("payment", new Payment());
+        }
         model.addAttribute("project", project);
         model.addAttribute("comments", comments);
         return "project";
@@ -57,11 +55,10 @@ public class ProjectController {
             @PathVariable int projectId,
             RedirectAttributes attributes
     ) {
+
         if (bindingResult.hasErrors()) {
-            System.out.println("Here");
             attributes.addFlashAttribute("org.springframework.validation.BindingResult.payment", bindingResult);
             attributes.addFlashAttribute("payment", payment);
-            System.out.println("Here 2");
             return "redirect:/project/" + projectId;
         }
 

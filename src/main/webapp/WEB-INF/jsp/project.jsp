@@ -30,8 +30,10 @@
         <form:form action="${donate_url}" modelAttribute="payment" method="post">
             <form:label path="amount">Doanate:</form:label>
             <form:input type="text" path="amount"/>
-            <form:errors path="amount"/>
-            <p><button>Send</button></p>
+            <form:errors path="amount" cssClass="alert alert-danger"/>
+            <p><button type="submit" class="btn btn-success">
+                <span class="glyphicon glyphicon-ok-sign"></span>&nbsp;Donate
+            </button></p>
         </form:form>
         <br/>
         <c:forEach var="comment" items="${comments}">
