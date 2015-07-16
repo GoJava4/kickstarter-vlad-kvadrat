@@ -18,6 +18,10 @@ public class UserRole {
     public UserRole() {
     }
 
+    public UserRole(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
