@@ -116,4 +116,11 @@ public class ProjectDaoImplTest {
         List<Project> projectsOfCategory = projectDao.getProjectsOfCategory(category);
         Assert.assertTrue(projectsOfCategory.size() == 2);
     }
+
+    @Test
+    public void testGetProjectsOfUser() throws Exception {
+        User user = userDao.getById(1);
+        List<Project> projectList = projectDao.getProjectsOfUser(user);
+        Assert.assertEquals(3,projectList.size());
+    }
 }
