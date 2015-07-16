@@ -1,6 +1,8 @@
 package com.morkva.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -11,6 +13,8 @@ public class Payment {
     @GeneratedValue
     private Integer id;
 
+    @NotNull
+    @Min(1)
     private double amount;
 
     @Temporal(TemporalType.TIMESTAMP)

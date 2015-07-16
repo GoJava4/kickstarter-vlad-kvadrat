@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -26,14 +27,12 @@
         <h3>Владелец проекта - ${current_project.user.username}</h3>
         <br/>
         <c:url var="donate_url" value="/project/${project.id}/donate"/>
-        <form action="${donate_url}" method="post">
-            <label>
-                Doanate:
-                <input type="text" name="donateCount"/>
-            </label>
-
-            <input type="submit" value="DONATE!">
-        </form>
+        <form:form action="${donate_url}" modelAttribute="payment" method="post">
+            <form:label path="amount">Doanate:</form:label>
+            <form:input type="text" path="amount"/>
+            <form:errors path="amount"/>
+            <p><button>Send</button></p>
+        </form:form>
         <br/>
         <c:forEach var="comment" items="${comments}">
             <div>
