@@ -48,4 +48,9 @@ public class ProjectServiceTest {
         projectService.update(project);
         Mockito.verify(projectDAO).update(project);
     }
+
+    @Test
+    public void testDonate() throws Exception {
+        //TODO make logic test
+    }
 }
