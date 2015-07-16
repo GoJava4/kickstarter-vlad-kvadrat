@@ -1,6 +1,6 @@
 #"Kickstarter" - GoIT course project
 
-#Used technologies:
+<h3>Used techonologies:</h3>
 <ul>
     <li>Spring Framework 4
         <ul>
@@ -13,6 +13,7 @@
         <ul>
             <li>JDBC</li>
             <li>Hibernate</li>
+            <li>MySQL</li>
         </ul>
     </li>
     <li>Testing
