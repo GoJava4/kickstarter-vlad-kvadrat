@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <payment_statuses id="1"
+                      status="payment_status 1"/>
+    <payment_statuses id="2"
+                      status="payment_status 2"/>
+    <payment_statuses id="3"
+                      status="payment_status 3"/>
+    <payment_statuses id="4"
+                      status="payment_status 4"/>
+    <payment_statuses id="5"
+                      status="New payment_status"/>
+</dataset>

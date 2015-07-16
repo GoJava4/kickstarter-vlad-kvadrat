@@ -1,0 +1,8 @@
+form.form-inline {
+    margin-top: 7px;
+    margin-bottom: 0;
+}
+
+#login-form > div > input {
+    width: 120px !important;
+}

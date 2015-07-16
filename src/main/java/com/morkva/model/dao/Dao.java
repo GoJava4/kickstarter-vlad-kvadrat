@@ -7,5 +7,4 @@ public interface Dao<T> {
     void update(T entity);
     void delete(T entity);
 
-    void merge(T entity);
 }

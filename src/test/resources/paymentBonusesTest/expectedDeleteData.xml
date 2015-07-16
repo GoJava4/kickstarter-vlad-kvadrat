@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <categories id="1" name="name 1"/>
+    <categories id="2" name="name 2"/>
+    <categories id="3" name="name 3"/>
+
+    <user_roles id="1"
+                name="role_name 2"/>
+    <user_roles id="2"
+                name="role_name 2"/>
+
+    <users id="1"
+           login="login 1"
+           password="password 1"
+           email="email 1"
+           personal_info="personal_info 1"
+           role_id="1"
+           username="username 1"
+           active="1"/>
+    <users id="2"
+           login="login 2"
+           password="password 2"
+           email="email 2"
+           personal_info="personal_info 2"
+           role_id="1"
+           username="username 2"
+           active="1"/>
+    <users id="3"
+           login="login 3"
+           password="password 3"
+           email="email 3"
+           personal_info="personal_info 3"
+           role_id="2"
+           username="username 3"
+           active="1"/>
+
+    <full_descriptions id="1"
+                       full_description="full_description 1"/>
+    <full_descriptions id="2"
+                       full_description="full_description 2"/>
+    <full_descriptions id="3"
+                       full_description="full_description 3"/>
+    <full_descriptions id="4"
+                       full_description="full_description 4"/>
+    <full_descriptions id="5"
+                       full_description="full_description 5"/>
+    <full_descriptions id="6"
+                       full_description="full_description 6"/>
+    <full_descriptions id="7"
+                       full_description="full_description 7"/>
+    <full_descriptions id="8"
+                       full_description="full_description 8"/>
+
+    <projects id="1"
+              name="name 1"
+              short_description="Short Descr 1"
+              current_money="1000"
+              need_money="5000"
+
+              category_id="1"
+              user_id="1"
+              full_description_id="1"
+              successfully_finished="1"/>
+    <projects id="2"
+              name="name 2"
+              short_description="Short Descr 2"
+              current_money="2000"
+              need_money="5200"
+
+              category_id="2"
+              user_id="2"
+              full_description_id="3"
+              successfully_finished="1"/>
+    <projects id="3"
+              name="name 3"
+              short_description="Short Descr 3"
+              current_money="3000"
+              need_money="5300"
+
+              category_id="2"
+              user_id="1"
+              full_description_id="4"
+              successfully_finished="1"/>
+    <projects id="4"
+              name="name 4"
+              short_description="Short Descr 4"
+              current_money="4000"
+              need_money="45000"
+
+              category_id="1"
+              user_id="1"
+              full_description_id="5"
+              successfully_finished="1"/>
+    <projects id="5"
+              name="name 5"
+              short_description="Short Descr 5"
+              current_money="5000"
+              need_money="45500"
+
+              category_id="1"
+              user_id="3"
+              full_description_id="7"
+              successfully_finished="1"/>
+
+    <payment_bonuses id="1"
+                     bonus_full_description_id="2"
+                     min_money="100"
+                     project_id="1"
+                     bonuses_left="10"/>
+    <!-- deleted payment_bonus 2-->
+</dataset>

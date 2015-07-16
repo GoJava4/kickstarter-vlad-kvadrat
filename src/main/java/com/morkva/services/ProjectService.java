@@ -51,7 +51,7 @@ public class ProjectService {
      * @param user - user that makes donation
      * @return updated Project
      */
-    public Project donate(Integer id, Integer amount, User user) {
+    public Project donate(Integer id, Double amount, User user) {
 
         Project project = projectDAO.getById(id);
 
@@ -76,7 +76,7 @@ public class ProjectService {
             updateBonus(paymentBonusesOfProject, lastElem);
         }
 
-        project.setCurrentMoney(project.getCurrentMoney() + amount);
+        project.setCurrentMoney(project.getCurrentMoney() + amount.intValue());
         projectDAO.update(project);
         return project;
     }

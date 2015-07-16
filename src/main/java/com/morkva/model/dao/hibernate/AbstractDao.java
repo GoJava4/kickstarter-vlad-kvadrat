@@ -36,9 +36,4 @@ public abstract class AbstractDao<T> implements Dao<T> {
     public void delete(T entity) {
         sessionFactory.getCurrentSession().delete(entity);
     }
-
-    @Override
-    public void merge(T entity) {
-        sessionFactory.getCurrentSession().merge(entity);
-    }
 }
