@@ -5,11 +5,9 @@
     <categories id="3" name="name 3"/>
 
     <user_roles id="1"
-                name="role_name 1"/>
+                name="role_name 2"/>
     <user_roles id="2"
                 name="role_name 2"/>
-    <user_roles id="3"
-                name="role_name 3"/>
 
     <users id="1"
            login="login 1"
@@ -35,14 +33,6 @@
            role_id="2"
            username="username 3"
            active="1"/>
-    <users id="4"
-           login="login 4"
-           password="password 4"
-           email="email 4"
-           personal_info="personal_info 4"
-           role_id="1"
-           username="username 4"
-           active="0"/>
 
     <full_descriptions id="1"
                        full_description="full_description 1"/>
@@ -112,99 +102,10 @@
               full_description_id="7"
               successfully_finished="1"/>
 
-    <payment_statuses id="1"
-                      status="payment_status 1"/>
-    <payment_statuses id="2"
-                      status="payment_status 2"/>
-    <payment_statuses id="3"
-                      status="payment_status 3"/>
-    <payment_statuses id="4"
-                      status="payment_status 4"/>
-
-    <payments id="1"
-              amount="10"
-              project_id="2"
-              status_id="1"
-              user_id="1"/>
-    <payments id="2"
-              amount="100"
-              project_id="1"
-              status_id="1"
-              user_id="3"/>
-    <payments id="3"
-              amount="5"
-
-              project_id="2"
-              status_id="1"
-              user_id="3"/>
-
-    <questions id="1"
-              question="question 1"
-
-              project_id="1"
-              user_id="3"/>
-    <questions id="2"
-               question="question 2"
-
-               project_id="2"
-               user_id="3"/>
-    <questions id="3"
-               question="question 3"
-
-               project_id="1"
-               user_id="3"/>
-
-    <answers id="1"
-             answer="answer 1"
-
-             question_id="1"
-             user_id="1"/>
-    <answers id="2"
-             answer="answer 2"
-
-             question_id="2"
-             user_id="2"/>
-
-    <comments id="1"
-                  comment="comment 1"
-
-                  project_id="1"
-                  user_id="3"/>
-    <comments id="2"
-                  comment="comment 2"
-
-                  project_id="1"
-                  user_id="2"/>
-    <comments id="3"
-                  comment="comment 3"
-
-                  project_id="1"
-                  user_id="3"/>
-    <comments id="4"
-                  comment="comment 4"
-
-                  project_id="2"
-                  user_id="3"/>
-
     <payment_bonuses id="1"
                      bonus_full_description_id="2"
                      min_money="100"
                      project_id="1"
                      bonuses_left="10"/>
-    <payment_bonuses id="2"
-                     bonus_full_description_id="6"
-                     min_money="200"
-                     project_id="1"
-                     bonuses_left="10"/>
-
-    <pictures id="1"
-              image="MTIzNDU="/>
-    <pictures id="2"
-              image="MTIzNDU="/>
-    <pictures id="3"
-              image="MTIzNDU="/>
-
-    <quotes id="1" value="value 1" author="author 1"/>
-    <quotes id="2" value="value 2" author="author 2"/>
-    <quotes id="3" value="value 3" author="author 3"/>
+    <!-- deleted payment_bonus 2-->
 </dataset>

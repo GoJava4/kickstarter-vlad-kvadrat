@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <user_roles id="1"
+                name="role_name 2"/>
+    <user_roles id="2"
+                name="role_name 2"/>
+
+    <users id="1"
+           login="login 1"
+           password="password 1"
+           email="email 1"
+           personal_info="personal_info 1"
+           role_id="1"
+           username="username 1"
+           active="1"/>
+    <users id="2"
+           login="login 2"
+           password="password 2"
+           email="email 2"
+           personal_info="personal_info 2"
+           role_id="1"
+           username="username 2"
+           active="1"/>
+    <users id="3"
+           login="login 3"
+           password="password 3"
+           email="email 3"
+           personal_info="personal_info 3"
+           role_id="2"
+           username="username 3"
+           active="1"/>
+    <users id="4"
+           login="login 4"
+           password="password 4"
+           email="email 4"
+           personal_info="personal_info 4"
+           role_id="1"
+           username="username 4"
+           active="0"/>
+    <users id="5"
+           login="New login"
+           password="password 5"
+           email="email 5"
+           personal_info="personal_info 5"
+           role_id="1"
+           username="username 5"
+           active="1"/>
+</dataset>
