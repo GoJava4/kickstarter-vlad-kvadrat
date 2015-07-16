@@ -45,20 +45,18 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "{projectId}/donate", method = RequestMethod.POST)
-    public String donateToProject(ModelMap modelMap, @RequestParam int donateCount, @PathVariable int projectId) {
+    public String donateToProject(@RequestParam int donateCount, @PathVariable int projectId) {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         com.morkva.entities.User userByLogin = userDetailsService.getUserByLogin(user.getUsername());
 
-        Project project = projectService.donate(projectId, donateCount, userByLogin);
-
-        modelMap.addAttribute("project", project);
+        projectService.donate(projectId, donateCount, userByLogin);
         return "redirect:/project/" + projectId;
     }
 
     @RequestMapping(value = "{projectId}/comments/add", method = RequestMethod.POST)
-    public String addComment(ModelMap modelMap, @PathVariable int projectId, @RequestParam(value = "comment", required = true) String commentValue) {
+    public String addComment(@PathVariable int projectId, @RequestParam(value = "comment", required = true) String commentValue) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         com.morkva.entities.User userByLogin = userDetailsService.getUserByLogin(user.getUsername());
 
