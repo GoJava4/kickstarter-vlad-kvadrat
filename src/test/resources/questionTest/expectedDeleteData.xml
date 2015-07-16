@@ -48,6 +48,8 @@
                        full_description="full_description 6"/>
     <full_descriptions id="7"
                        full_description="full_description 7"/>
+    <full_descriptions id="8"
+                       full_description="full_description 8"/>
 
     <projects id="1"
               name="name 1"
@@ -89,5 +91,26 @@
               user_id="1"
               full_description_id="5"
               successfully_finished="1"/>
-    <!-- deleted project 5 -->
+    <projects id="5"
+              name="name 5"
+              short_description="Short Descr 5"
+              current_money="5000"
+              need_money="45500"
+
+              category_id="1"
+              user_id="3"
+              full_description_id="7"
+              successfully_finished="1"/>
+
+    <questions id="1"
+               question="question 1"
+
+               project_id="1"
+               user_id="3"/>
+    <questions id="2"
+               question="question 2"
+
+               project_id="2"
+               user_id="3"/>
+
 </dataset>
