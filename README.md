@@ -1,9 +1,6 @@
 #"Kickstarter" - GoIT course project
 
 #Used techonologies:
-<script>
-    alert( "Привет" );
-</script>
 <ul>
     <li>Spring Framework 4
         <ul>
