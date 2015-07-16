@@ -5,8 +5,12 @@ import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
+import com.morkva.entities.FullDescription;
+import com.morkva.model.dao.FullDescriptionDao;
+import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
@@ -28,41 +32,50 @@ import static org.junit.Assert.*;
 @DatabaseSetup(value = "classpath:sampleData.xml", type = DatabaseOperation.CLEAN_INSERT)
 public class FullDescriptionDaoImplTest {
 
+    @Autowired
+    FullDescriptionDao fullDescriptionDao;
+
     @Test
     @Rollback(false)
     @ExpectedDatabase(
-            value = "classpath:answerTest/expectedCreateData.xml",
+            value = "classpath:fullDescriprionTest/expectedCreateData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT,
-            table = "full_description"
+            table = "full_descriptions"
     )
     public void testCreate() throws Exception {
-
+        FullDescription fullDescription = new FullDescription();
+        fullDescription.setValue("New full_description");
+        fullDescriptionDao.create(fullDescription);
     }
 
     @Test
     public void testGetById() throws Exception {
-
+        FullDescription fullDescription = fullDescriptionDao.getById(1);
+        Assert.assertEquals("full_description 1", fullDescription.getValue());
     }
 
     @Test
     @Rollback(false)
     @ExpectedDatabase(
-            value = "classpath:answerTest/expectedUpdateData.xml",
+            value = "classpath:fullDescriprionTest/expectedUpdateData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT,
-            table = "full_description"
+            table = "full_descriptions"
     )
     public void testUpdate() throws Exception {
-
+        FullDescription fullDescription = fullDescriptionDao.getById(1);
+        fullDescription.setValue("Updated full_description 1");
+        fullDescriptionDao.update(fullDescription);
     }
 
     @Test
     @Rollback(false)
     @ExpectedDatabase(
-            value = "classpath:answerTest/expectedDeleteData.xml",
+            value = "classpath:fullDescriprionTest/expectedDeleteData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT,
-            table = "full_description"
+            table = "full_descriptions"
     )
     public void testDelete() throws Exception {
-
+        FullDescription fullDescription = fullDescriptionDao.getById(8);
+        fullDescriptionDao.delete(fullDescription);
     }
 }

@@ -48,6 +48,8 @@
                        full_description="full_description 6"/>
     <full_descriptions id="7"
                        full_description="full_description 7"/>
+    <full_descriptions id="8"
+                       full_description="full_description 8"/>
 
     <projects id="1"
               name="name 1"
