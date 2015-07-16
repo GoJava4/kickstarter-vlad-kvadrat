@@ -4,6 +4,7 @@
 <ul>
     <li>Spring Framework 4
         <ul>
+            <li>Spring Core</li>
             <li>Spring MVC</li>
             <li>Spring JDBC Template</li>
         </ul>
