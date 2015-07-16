@@ -33,6 +33,14 @@
            role_id="2"
            username="username 3"
            active="1"/>
+    <users id="4"
+           login="login 4"
+           password="password 4"
+           email="email 4"
+           personal_info="personal_info 4"
+           role_id="1"
+           username="username 4"
+           active="0"/>
 
     <full_descriptions id="1"
                        full_description="full_description 1"/>
