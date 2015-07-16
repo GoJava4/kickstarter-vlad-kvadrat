@@ -38,7 +38,7 @@ public class FullDescriptionDaoImplTest {
     @Test
     @Rollback(false)
     @ExpectedDatabase(
-            value = "classpath:fullDescriprionTest/expectedCreateData.xml",
+            value = "classpath:fullDescriptionTest/expectedCreateData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT,
             table = "full_descriptions"
     )
@@ -57,7 +57,7 @@ public class FullDescriptionDaoImplTest {
     @Test
     @Rollback(false)
     @ExpectedDatabase(
-            value = "classpath:fullDescriprionTest/expectedUpdateData.xml",
+            value = "classpath:fullDescriptionTest/expectedUpdateData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT,
             table = "full_descriptions"
     )
@@ -70,7 +70,7 @@ public class FullDescriptionDaoImplTest {
     @Test
     @Rollback(false)
     @ExpectedDatabase(
-            value = "classpath:fullDescriprionTest/expectedDeleteData.xml",
+            value = "classpath:fullDescriptionTest/expectedDeleteData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT,
             table = "full_descriptions"
     )
