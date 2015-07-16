@@ -1,6 +1,6 @@
 #"Kickstarter" - GoIT course project
 
-#Used techonologies:
+#Used technologies:
 <ul>
     <li>Spring Framework 4
         <ul>
