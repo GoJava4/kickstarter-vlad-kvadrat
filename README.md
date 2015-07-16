@@ -13,6 +13,7 @@
         <ul>
             <li>JDBC</li>
             <li>Hibernate</li>
+            <li>MySQL</li>
         </ul>
     </li>
     <li>Testing
