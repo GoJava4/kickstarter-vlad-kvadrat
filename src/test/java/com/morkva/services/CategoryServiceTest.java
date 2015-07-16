@@ -11,6 +11,8 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.LinkedList;
 
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class CategoryServiceTest {
@@ -37,5 +39,12 @@ public class CategoryServiceTest {
         Category category = new Category("Mocked category");
         when(categoryDAO.getById(1)).thenReturn(category);
         Assert.assertEquals(category, categoryService.getById(1));
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+        Category category = new Category("Mocked category");
+        categoryService.delete(category);
+        verify(categoryDAO).delete(category);
     }
 }
