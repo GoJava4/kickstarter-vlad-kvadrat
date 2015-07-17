@@ -5,6 +5,7 @@ import com.morkva.entities.Project;
 import com.morkva.entities.User;
 import com.morkva.model.dao.CommentDao;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -37,6 +38,7 @@ public class CommentServiceTest {
     @Mock
     Date date;
 
+    @Ignore
     @Test
     public void testCreate() throws Exception {
         String text = "Mocked Comment";
