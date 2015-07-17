@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class QuoteService {
 
     @Autowired
-    QuoteDao quoteDAO;
+    private QuoteDao quoteDAO;
 
     public Quote getRandom() {
         return quoteDAO.getRandom();

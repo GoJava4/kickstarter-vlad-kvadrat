@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service("fullDescriptionService")
 public class FullDescriptionService {
 
-    @Qualifier("fullDescriptionDao")
     @Autowired
     private FullDescriptionDao fullDescriptionDao;
 }

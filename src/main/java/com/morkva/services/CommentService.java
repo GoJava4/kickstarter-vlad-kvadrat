@@ -15,7 +15,6 @@ import java.util.List;
 @Service("commentService")
 public class CommentService {
 
-    @Qualifier("commentDao")
     @Autowired
     private CommentDao commentDao;
 

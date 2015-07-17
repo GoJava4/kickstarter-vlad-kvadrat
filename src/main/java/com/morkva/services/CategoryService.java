@@ -13,7 +13,7 @@ import java.util.List;
 public class CategoryService {
 
     @Autowired
-    CategoryDao categoryDAO;
+    private CategoryDao categoryDAO;
 
     public List<Category> getAll() {
         return categoryDAO.getAll();
