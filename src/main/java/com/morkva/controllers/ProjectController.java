@@ -26,8 +26,6 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-
-
     @Autowired
     private UserDetailsServiceExtended userDetailsService;
 

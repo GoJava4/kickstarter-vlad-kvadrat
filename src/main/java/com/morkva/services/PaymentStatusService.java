@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 @Service("paymentStatusService")
 public class PaymentStatusService {
 
-
-    @Qualifier("paymentStatusDao")
     @Autowired
     private PaymentStatusDao paymentStatusDao;
 

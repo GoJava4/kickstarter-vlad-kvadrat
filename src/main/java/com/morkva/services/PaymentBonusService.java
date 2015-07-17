@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service("paymentBonusService")
 public class PaymentBonusService {
 
-    @Qualifier("paymentBonusDao")
     @Autowired
     private PaymentBonusDao paymentBonusDao;
 }

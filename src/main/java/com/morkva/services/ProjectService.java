@@ -17,13 +17,11 @@ import java.util.List;
 public class ProjectService {
 
     @Autowired
-    ProjectDao projectDAO;
+    private ProjectDao projectDAO;
 
-    @Qualifier("paymentBonusDao")
     @Autowired
     private PaymentBonusDao paymentBonusDao;
 
-    @Qualifier("paymentDao")
     @Autowired
     private PaymentDao paymentDao;
 

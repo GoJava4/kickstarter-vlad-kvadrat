@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service("questionService")
 public class QuestionService {
 
-    @Qualifier("questionDao")
     @Autowired
     private QuestionDao questionDao;
 
