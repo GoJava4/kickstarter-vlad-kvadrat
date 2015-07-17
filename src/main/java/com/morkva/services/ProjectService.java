@@ -5,7 +5,6 @@ import com.morkva.model.dao.PaymentBonusDao;
 import com.morkva.model.dao.PaymentDao;
 import com.morkva.model.dao.ProjectDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -79,7 +78,7 @@ public class ProjectService {
     }
 
     private void createPayment(Double amount, User user, Project project) {
-        PaymentStatus okStatus = paymentStatusService.getById(0);
+        PaymentStatus okStatus = paymentStatusService.getById(1);
 
         Payment payment = new Payment();
         payment.setAmount(amount);
