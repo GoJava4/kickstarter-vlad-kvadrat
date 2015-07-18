@@ -4,16 +4,19 @@ import com.morkva.entities.Comment;
 import com.morkva.entities.Project;
 import com.morkva.entities.User;
 import com.morkva.model.dao.CommentDao;
-import com.morkva.services.impl.CommentServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
+import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class CommentServiceImplTest {
 
@@ -21,7 +24,7 @@ public class CommentServiceImplTest {
     CommentDao commentDao;
 
     @InjectMocks
-    CommentServiceImpl commentService;
+    CommentService commentService;
 
     @Before
     public void init() {
@@ -51,6 +54,8 @@ public class CommentServiceImplTest {
 
     @Test
     public void testGetCommentsOfProject() throws Exception {
-
+        List<Comment> listOfComments = Arrays.asList(new Comment(), new Comment(), new Comment());
+        when(commentDao.getCommentsOfProject(project)).thenReturn(listOfComments);
+        assertSame(listOfComments, commentService.getCommentsOfProject(project));
     }
 }
