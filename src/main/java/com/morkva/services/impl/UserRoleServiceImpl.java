@@ -1,4 +1,4 @@
-package com.morkva.services;
+package com.morkva.services.impl;
 
 import com.morkva.entities.UserRole;
 import com.morkva.model.dao.UserRoleDao;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("userRoleService")
-public class UserRoleService {
+public class UserRoleServiceImpl {
 
     @Autowired
     private UserRoleDao userRoleDao;

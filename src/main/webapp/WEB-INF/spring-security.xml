@@ -25,7 +25,7 @@
 
     <global-method-security secured-annotations="enabled" proxy-target-class="true"/>
 
-    <beans:bean id="userDetailsService" class="com.morkva.services.UserDetailsServiceImpl"/>
+    <beans:bean id="userDetailsService" class="com.morkva.services.impl.UserDetailsServiceImpl"/>
 
     <authentication-manager>
         <authentication-provider user-service-ref="userDetailsService"/>

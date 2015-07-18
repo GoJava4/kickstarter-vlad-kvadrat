@@ -1,7 +1,7 @@
 package com.morkva.controllers;
 
 import com.morkva.entities.Picture;
-import com.morkva.services.PictureService;
+import com.morkva.services.impl.PictureServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class PictureController {
 
     @Autowired
-    private PictureService pictureService;
+    private PictureServiceImpl pictureService;
 
     @RequestMapping(value = "/{imageId}", method = RequestMethod.GET)
     public void showImage(@PathVariable Integer imageId, HttpServletResponse response, HttpServletRequest request) throws IOException {

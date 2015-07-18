@@ -2,8 +2,8 @@ package com.morkva.controllers;
 
 import com.morkva.entities.Comment;
 import com.morkva.entities.Project;
-import com.morkva.services.CommentService;
-import com.morkva.services.ProjectService;
+import com.morkva.services.impl.CommentServiceImpl;
+import com.morkva.services.impl.ProjectServiceImpl;
 import com.morkva.services.UserDetailsServiceExtended;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,14 +24,14 @@ import java.util.List;
 public class ProjectController {
 
     @Autowired
-    private ProjectService projectService;
+    private ProjectServiceImpl projectService;
 
     @Autowired
     private UserDetailsServiceExtended userDetailsService;
 
     @Qualifier("commentService")
     @Autowired
-    private CommentService commentService;
+    private CommentServiceImpl commentService;
 
     @RequestMapping(value = "{projectId}", method = RequestMethod.GET)
     public String showProject(ModelMap modelMap, @PathVariable int projectId) {
