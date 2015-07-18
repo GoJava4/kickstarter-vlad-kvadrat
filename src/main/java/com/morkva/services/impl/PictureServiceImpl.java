@@ -1,4 +1,4 @@
-package com.morkva.services;
+package com.morkva.services.impl;
 
 import com.morkva.entities.Picture;
 import com.morkva.model.dao.PictureDao;
@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service("pictureService")
 @Transactional
-public class PictureService {
+public class PictureServiceImpl {
 
     @Autowired
     private PictureDao pictureDao;

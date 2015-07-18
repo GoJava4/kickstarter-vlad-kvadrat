@@ -3,6 +3,7 @@ package com.morkva.services;
 import com.morkva.entities.Category;
 import com.morkva.entities.Project;
 import com.morkva.model.dao.ProjectDao;
+import com.morkva.services.impl.ProjectServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,13 +15,13 @@ import org.mockito.MockitoAnnotations;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class ProjectServiceTest {
+public class ProjectServiceImplTest {
 
     @Mock
     ProjectDao projectDAO;
 
     @InjectMocks
-    ProjectService projectService;
+    ProjectServiceImpl projectService;
 
     @Before
     public void init() {
