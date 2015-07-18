@@ -52,6 +52,7 @@ public class ProjectServiceImpl implements ProjectService {
      * @param user - user that makes donation
      * @return updated Project
      */
+    @Override
     public Project donate(Integer id, Integer amount, User user) {
 
         Project project = projectDAO.getById(id);
