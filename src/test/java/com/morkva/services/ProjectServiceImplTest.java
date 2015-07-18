@@ -3,7 +3,6 @@ package com.morkva.services;
 import com.morkva.entities.Category;
 import com.morkva.entities.Project;
 import com.morkva.model.dao.ProjectDao;
-import com.morkva.services.impl.ProjectServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +20,7 @@ public class ProjectServiceImplTest {
     ProjectDao projectDAO;
 
     @InjectMocks
-    ProjectServiceImpl projectService;
+    ProjectService projectService;
 
     @Before
     public void init() {

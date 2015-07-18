@@ -53,20 +53,22 @@ public class ProjectServiceImpl implements ProjectService {
      * @return updated Project
      */
     @Override
-    public Project donate(Integer id, Integer amount, User user) {
-
+    public Project donate(Integer id, Double amount, User user) {
         Project project = projectDAO.getById(id);
+        //creating successful payment
+        createPayment(amount, user, project);
+        //checking if payment enough for exact bonus
+        //and if bonuses still left, decreases that bonus amount and updates it in DB
+        checkForBonusForPayment(amount, project);
 
-        PaymentStatus okStatus = paymentStatusService.getById(1);
+        //Updating the project
+        project.setCurrentMoney(project.getCurrentMoney() + amount.intValue());
+        projectDAO.update(project);
 
-        Payment payment = new Payment();
-        payment.setAmount(amount);
-        payment.setDate(new Date());
-        payment.setUser(user);
-        payment.setProject(project);
-        payment.setStatus(okStatus);
-        paymentDao.create(payment);
+        return project;
+    }
 
+    private void checkForBonusForPayment(Double amount, Project project) {
         List<PaymentBonus> paymentBonusesOfProject = paymentBonusDao.getPaymentBonusesOfProject(project);
         int lastElem = paymentBonusesOfProject.size() - 1;
         for (int i = 0; i < lastElem; i++) {
@@ -77,15 +79,25 @@ public class ProjectServiceImpl implements ProjectService {
         if (amount > paymentBonusesOfProject.get(lastElem).getMinMoney()) {
             updateBonus(paymentBonusesOfProject, lastElem);
         }
+    }
 
-        project.setCurrentMoney(project.getCurrentMoney() + amount);
-        projectDAO.update(project);
-        return project;
+    private void createPayment(Double amount, User user, Project project) {
+        PaymentStatus okStatus = paymentStatusService.getById(1);
+
+        Payment payment = new Payment();
+        payment.setAmount(amount);
+        payment.setDate(new Date());
+        payment.setUser(user);
+        payment.setProject(project);
+        payment.setStatus(okStatus);
+        paymentDao.create(payment);
     }
 
     private void updateBonus(List<PaymentBonus> paymentBonusesOfProject, int i) {
         PaymentBonus paymentBonus = paymentBonusesOfProject.get(i);
-        paymentBonus.decreaseBonusesLeft();
-        paymentBonusDao.update(paymentBonus);
+        if (paymentBonus.getBonusesLeft() > 0) {
+            paymentBonus.decreaseBonusesLeft();
+            paymentBonusDao.update(paymentBonus);
+        }
     }
 }

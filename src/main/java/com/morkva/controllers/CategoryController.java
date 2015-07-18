@@ -45,7 +45,7 @@ public class CategoryController {
         return "category";
     }
 
-    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.DELETE)
     public String deleteCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
         categoryService.delete(category);
