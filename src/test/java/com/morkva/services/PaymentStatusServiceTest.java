@@ -30,6 +30,6 @@ public class PaymentStatusServiceTest {
         Integer id = 1;
         PaymentStatus mock = new PaymentStatus();
         Mockito.when(paymentStatusDao.getById(id)).thenReturn(mock);
-        Assert.assertEquals(mock, paymentStatusDao.getById(id));
+        Assert.assertEquals(mock, paymentStatusService.getById(id));
     }
 }
