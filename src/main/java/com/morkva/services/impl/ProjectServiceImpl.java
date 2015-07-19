@@ -71,7 +71,6 @@ public class ProjectServiceImpl implements ProjectService {
         project.setCurrentMoney(project.getCurrentMoney() + amount.intValue());
         projectDAO.update(project);
 
-
         return project;
     }
 
