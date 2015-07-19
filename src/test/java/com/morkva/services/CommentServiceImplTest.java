@@ -10,12 +10,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-public class CommentServiceTest {
+public class CommentServiceImplTest {
 
     @Mock
     CommentDao commentDao;
@@ -51,6 +54,8 @@ public class CommentServiceTest {
 
     @Test
     public void testGetCommentsOfProject() throws Exception {
-
+        List<Comment> listOfComments = Arrays.asList(new Comment(), new Comment(), new Comment());
+        when(commentDao.getCommentsOfProject(project)).thenReturn(listOfComments);
+        assertSame(listOfComments, commentService.getCommentsOfProject(project));
     }
 }

@@ -1,6 +1,7 @@
 package com.morkva.services;
 
 import com.morkva.model.dao.QuoteDao;
+import com.morkva.services.impl.QuoteServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,13 +10,13 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-public class QuoteServiceTest {
+public class QuoteServiceImplTest {
 
     @Mock
     QuoteDao quoteDAO;
 
     @InjectMocks
-    QuoteService quoteService;
+    QuoteServiceImpl quoteService;
 
     @Before
     public void init() {

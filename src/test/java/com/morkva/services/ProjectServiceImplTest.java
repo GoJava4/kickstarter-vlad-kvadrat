@@ -14,7 +14,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class ProjectServiceTest {
+public class ProjectServiceImplTest {
 
     @Mock
     ProjectDao projectDAO;

@@ -1,14 +1,10 @@
 package com.morkva.services;
 
-import com.morkva.model.dao.AnswerDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import com.morkva.entities.Answer;
+import com.morkva.entities.Question;
 
-@Service("answerService")
-public class AnswerService {
+import java.util.List;
 
-    @Qualifier("answerDao")
-    @Autowired
-    private AnswerDao answerDao;
+public interface AnswerService {
+    List<Answer> getAnswersOfQuestion(Question question);
 }

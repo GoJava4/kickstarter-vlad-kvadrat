@@ -25,9 +25,8 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @RequestMapping(value = "/{categoryId}", method = RequestMethod.GET)
-    public String showCategory(ModelMap modelMap, @PathVariable String categoryId) {
-        int id = Integer.parseInt(categoryId);
-        Category category = categoryService.getById(id);
+    public String showCategory(ModelMap modelMap, @PathVariable int categoryId) {
+        Category category = categoryService.getById(categoryId);
 
         List<Project> projectsForCategory = projectService.getProjectsOfCategory(category);
 
@@ -46,7 +45,7 @@ public class CategoryController {
         return "category";
     }
 
-    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.DELETE)
     public String deleteCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
         categoryService.delete(category);
