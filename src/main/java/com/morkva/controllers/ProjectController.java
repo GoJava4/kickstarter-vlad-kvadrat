@@ -3,9 +3,8 @@ package com.morkva.controllers;
 import com.morkva.entities.Comment;
 import com.morkva.entities.Payment;
 import com.morkva.entities.Project;
-import com.morkva.services.CommentService;
-import com.morkva.services.ProjectService;
-import com.morkva.services.UserDetailsServiceExtended;
+import com.morkva.entities.Question;
+import com.morkva.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -26,21 +25,29 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
+
+
     @Autowired
     private UserDetailsServiceExtended userDetailsService;
 
     @Autowired
     private CommentService commentService;
 
+    @Autowired
+    private QuestionService questionService;
+
 
     @RequestMapping(value = "{projectId}", method = RequestMethod.GET)
     public String showProject(Model model, @PathVariable int projectId) {
         Project project = projectService.getById(projectId);
         List<Comment> comments = commentService.getCommentsOfProject(project);
+        List<Question> questions = questionService.getQuestionsOfProject(project);
+
 
         if (!model.containsAttribute("payment")) {
             model.addAttribute("payment", new Payment());
         }
+        model.addAttribute("questions", questions);
         model.addAttribute("project", project);
         model.addAttribute("comments", comments);
         return "project";

@@ -6,3 +6,15 @@ form.form-inline {
 #login-form > div > input {
     width: 120px !important;
 }
+
+.bottom {
+    border-bottom: 1px solid #000000;
+}
+
+.right {
+    border-right: 1px solid #000000;
+}
+
+.left {
+    border-left: 1px solid black;
+}
