@@ -32,6 +32,12 @@ public class Payment {
     @JoinColumn(name = "status_id")
     private PaymentStatus status;
 
+    @ManyToOne
+    @JoinTable(name = "bonuses_for_payments",
+        joinColumns = @JoinColumn(name = "payment_id"),
+        inverseJoinColumns = @JoinColumn(name = "payment_bonus_id"))
+    private PaymentBonus paymentBonus;
+
     public Payment() {
     }
 
@@ -81,5 +87,13 @@ public class Payment {
 
     public void setStatus(PaymentStatus status) {
         this.status = status;
+    }
+
+    public PaymentBonus getPaymentBonus() {
+        return paymentBonus;
+    }
+
+    public void setPaymentBonus(PaymentBonus paymentBonus) {
+        this.paymentBonus = paymentBonus;
     }
 }

@@ -55,11 +55,17 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project donate(Integer id, Double amount, User user) {
         Project project = projectDAO.getById(id);
-        //creating successful payment
-        createPayment(amount, user, project);
         //checking if payment enough for exact bonus
         //and if bonuses still left, decreases that bonus amount and updates it in DB
-        checkForBonusForPayment(amount, project);
+        PaymentBonus paymentBonus = checkForBonusForPayment(amount, project);
+        //creating successful payment
+        if (paymentBonus == null) {
+            createPayment(amount, user, project);
+        } else {
+            //Update bonus if not null
+            updateBonus(paymentBonus);
+            createPayment(amount, user, project, paymentBonus);
+        }
 
         //Updating the project
         project.setCurrentMoney(project.getCurrentMoney() + amount.intValue());
@@ -68,16 +74,25 @@ public class ProjectServiceImpl implements ProjectService {
         return project;
     }
 
-    private void checkForBonusForPayment(Double amount, Project project) {
+    private PaymentBonus checkForBonusForPayment(Double amount, Project project) {
         List<PaymentBonus> paymentBonusesOfProject = paymentBonusDao.getPaymentBonusesOfProject(project);
         int lastElem = paymentBonusesOfProject.size() - 1;
         for (int i = 0; i < lastElem; i++) {
             if (amount >= paymentBonusesOfProject.get(i).getMinMoney() && amount < paymentBonusesOfProject.get(i + 1).getMinMoney()) {
-                updateBonus(paymentBonusesOfProject, i);
+                return checkForBonusesLeft(paymentBonusesOfProject.get(i));
             }
         }
         if (amount > paymentBonusesOfProject.get(lastElem).getMinMoney()) {
-            updateBonus(paymentBonusesOfProject, lastElem);
+            return checkForBonusesLeft(paymentBonusesOfProject.get(lastElem));
+        }
+        return null;
+    }
+
+    private PaymentBonus checkForBonusesLeft(PaymentBonus paymentBonus) {
+        if (paymentBonus.getBonusesLeft() > 0) {
+            return paymentBonus;
+        } else {
+            return null;
         }
     }
 
@@ -93,8 +108,20 @@ public class ProjectServiceImpl implements ProjectService {
         paymentDao.create(payment);
     }
 
-    private void updateBonus(List<PaymentBonus> paymentBonusesOfProject, int i) {
-        PaymentBonus paymentBonus = paymentBonusesOfProject.get(i);
+    private void createPayment(Double amount, User user, Project project, PaymentBonus paymentBonus) {
+        PaymentStatus okStatus = paymentStatusService.getById(1);
+
+        Payment payment = new Payment();
+        payment.setAmount(amount);
+        payment.setDate(new Date());
+        payment.setUser(user);
+        payment.setProject(project);
+        payment.setStatus(okStatus);
+        payment.setPaymentBonus(paymentBonus);
+        paymentDao.create(payment);
+    }
+
+    private void updateBonus(PaymentBonus paymentBonus) {
         if (paymentBonus.getBonusesLeft() > 0) {
             paymentBonus.decreaseBonusesLeft();
             paymentBonusDao.update(paymentBonus);

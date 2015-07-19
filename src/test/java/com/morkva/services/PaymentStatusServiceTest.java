@@ -10,8 +10,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.Assert.*;
-
 public class PaymentStatusServiceTest {
 
     @Mock
