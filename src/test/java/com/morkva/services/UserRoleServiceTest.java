@@ -2,6 +2,7 @@ package com.morkva.services;
 
 import com.morkva.entities.UserRole;
 import com.morkva.model.dao.UserRoleDao;
+import com.morkva.services.impl.UserRoleServiceImpl;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,10 +16,10 @@ import static org.junit.Assert.*;
 public class UserRoleServiceTest {
 
     @Mock
-    UserRoleDao userRoleDao;
+    private UserRoleDao userRoleDao;
 
     @InjectMocks
-    UserRoleService userRoleService;
+    private UserRoleServiceImpl userRoleService;
 
     @Before
     public void init() {

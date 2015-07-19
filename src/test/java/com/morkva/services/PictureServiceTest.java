@@ -2,6 +2,7 @@ package com.morkva.services;
 
 import com.morkva.entities.Picture;
 import com.morkva.model.dao.PictureDao;
+import com.morkva.services.impl.PictureServiceImpl;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,10 +16,10 @@ import static org.junit.Assert.*;
 public class PictureServiceTest {
 
     @Mock
-    PictureDao pictureDao;
+    private PictureDao pictureDao;
 
     @InjectMocks
-    PictureService pictureService;
+    private PictureServiceImpl pictureService;
 
     @Before
     public void init() {

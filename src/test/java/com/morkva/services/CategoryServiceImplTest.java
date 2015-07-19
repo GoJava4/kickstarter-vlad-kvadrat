@@ -21,7 +21,7 @@ public class CategoryServiceImplTest {
     CategoryDao categoryDAO;
 
     @InjectMocks
-    CategoryServiceImpl categoryServiceImpl;
+    CategoryServiceImpl categoryService;
 
     @Before
     public void init() {
@@ -31,20 +31,20 @@ public class CategoryServiceImplTest {
     @Test
     public void testGetAll() throws Exception {
         when(categoryDAO.getAll()).thenReturn(new LinkedList<Category>());
-        Assert.assertTrue(categoryServiceImpl.getAll().size() == 0);
+        Assert.assertTrue(categoryService.getAll().size() == 0);
     }
 
     @Test
     public void testGetById() throws Exception {
         Category category = new Category("Mocked category");
         when(categoryDAO.getById(1)).thenReturn(category);
-        Assert.assertEquals(category, categoryServiceImpl.getById(1));
+        Assert.assertEquals(category, categoryService.getById(1));
     }
 
     @Test
     public void testDelete() throws Exception {
         Category category = new Category("Mocked category");
-        categoryServiceImpl.delete(category);
+        categoryService.delete(category);
         verify(categoryDAO).delete(category);
     }
 }

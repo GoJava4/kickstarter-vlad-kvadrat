@@ -2,6 +2,7 @@ package com.morkva.services;
 
 import com.morkva.entities.PaymentStatus;
 import com.morkva.model.dao.PaymentStatusDao;
+import com.morkva.services.impl.PaymentStatusServiceImpl;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,10 +14,10 @@ import org.mockito.MockitoAnnotations;
 public class PaymentStatusServiceTest {
 
     @Mock
-    PaymentStatusDao paymentStatusDao;
+    private PaymentStatusDao paymentStatusDao;
 
     @InjectMocks
-    PaymentStatusService paymentStatusService;
+    private PaymentStatusServiceImpl paymentStatusService;
 
     @Before
     public void init() {

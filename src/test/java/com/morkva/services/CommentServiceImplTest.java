@@ -4,6 +4,7 @@ import com.morkva.entities.Comment;
 import com.morkva.entities.Project;
 import com.morkva.entities.User;
 import com.morkva.model.dao.CommentDao;
+import com.morkva.services.impl.CommentServiceImpl;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -22,10 +23,10 @@ import static org.mockito.Mockito.when;
 public class CommentServiceImplTest {
 
     @Mock
-    CommentDao commentDao;
+    private CommentDao commentDao;
 
     @InjectMocks
-    CommentService commentService;
+    private CommentServiceImpl commentService;
 
     @Before
     public void init() {
@@ -33,13 +34,13 @@ public class CommentServiceImplTest {
     }
 
     @Mock
-    User user;
+    private User user;
 
     @Mock
-    Project project;
+    private Project project;
 
     @Mock
-    Date date;
+    private Date date;
 
     @Ignore
     @Test

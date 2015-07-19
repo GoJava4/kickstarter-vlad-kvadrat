@@ -13,10 +13,10 @@ import org.mockito.MockitoAnnotations;
 public class QuoteServiceImplTest {
 
     @Mock
-    QuoteDao quoteDAO;
+    private QuoteDao quoteDAO;
 
     @InjectMocks
-    QuoteServiceImpl quoteService;
+    private QuoteServiceImpl quoteService;
 
     @Before
     public void init() {

@@ -3,6 +3,7 @@ package com.morkva.services;
 import com.morkva.entities.Category;
 import com.morkva.entities.Project;
 import com.morkva.model.dao.ProjectDao;
+import com.morkva.services.impl.ProjectServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,10 +18,10 @@ import java.util.LinkedList;
 public class ProjectServiceImplTest {
 
     @Mock
-    ProjectDao projectDAO;
+    private ProjectDao projectDAO;
 
     @InjectMocks
-    ProjectService projectService;
+    private ProjectServiceImpl projectService;
 
     @Before
     public void init() {
