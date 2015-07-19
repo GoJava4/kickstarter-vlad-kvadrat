@@ -1,4 +1,4 @@
-package com.morkva.services;
+package com.morkva.services.impl;
 
 import com.morkva.model.dao.QuoteDao;
 import com.morkva.services.impl.QuoteServiceImpl;

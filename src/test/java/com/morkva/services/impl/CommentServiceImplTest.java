@@ -1,4 +1,4 @@
-package com.morkva.services;
+package com.morkva.services.impl;
 
 import com.morkva.entities.Comment;
 import com.morkva.entities.Project;
