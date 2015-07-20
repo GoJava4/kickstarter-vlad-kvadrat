@@ -7,7 +7,5 @@ public interface UserRoleService {
 
     UserRole getById(Integer id);
 
-    void update(UserRole userRole);
-
     void delete(UserRole userRole);
 }

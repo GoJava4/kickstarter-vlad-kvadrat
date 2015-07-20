@@ -23,11 +23,6 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public void update(UserRole userRole) {
-        userRoleDao.update(userRole);
-    }
-
-    @Override
     public void delete(UserRole userRole) {
         userRoleDao.delete(userRole);
     }
