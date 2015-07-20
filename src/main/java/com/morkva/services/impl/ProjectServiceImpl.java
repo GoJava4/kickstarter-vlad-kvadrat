@@ -59,12 +59,9 @@ public class ProjectServiceImpl implements ProjectService {
         //and if bonuses still left, decreases that bonus amount and updates it in DB
         PaymentBonus paymentBonus = checkForBonusForPayment(amount, project);
         //creating successful payment
-        if (paymentBonus == null) {
-            createPayment(amount, user, project);
-        } else {
-            //Update bonus if not null
+        createPayment(amount, user, project, paymentBonus);
+        if (paymentBonus != null) {
             updateBonus(paymentBonus);
-            createPayment(amount, user, project, paymentBonus);
         }
 
         //Updating the project
@@ -96,17 +93,7 @@ public class ProjectServiceImpl implements ProjectService {
         }
     }
 
-    private void createPayment(Double amount, User user, Project project) {
-        PaymentStatus okStatus = paymentStatusService.getById(1);
 
-        Payment payment = new Payment();
-        payment.setAmount(amount);
-        payment.setDate(new Date());
-        payment.setUser(user);
-        payment.setProject(project);
-        payment.setStatus(okStatus);
-        paymentDao.create(payment);
-    }
 
     private void createPayment(Double amount, User user, Project project, PaymentBonus paymentBonus) {
         PaymentStatus okStatus = paymentStatusService.getById(1);
