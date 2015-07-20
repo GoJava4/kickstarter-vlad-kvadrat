@@ -13,9 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 import java.util.LinkedList;
 
-/**
- * Created by koros on 11.07.2015.
- */
 @Service("userDetailsService")
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsServiceExtended {

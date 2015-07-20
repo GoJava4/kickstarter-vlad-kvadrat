@@ -4,6 +4,7 @@ import com.morkva.entities.*;
 import com.morkva.model.dao.PaymentBonusDao;
 import com.morkva.model.dao.PaymentDao;
 import com.morkva.model.dao.ProjectDao;
+import com.morkva.services.PaymentStatusService;
 import com.morkva.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class ProjectServiceImpl implements ProjectService {
     private PaymentDao paymentDao;
 
     @Autowired
-    private PaymentStatusServiceImpl paymentStatusService;
+    private PaymentStatusService paymentStatusService;
 
 
     @Override
