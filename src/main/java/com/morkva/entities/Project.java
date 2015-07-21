@@ -1,6 +1,10 @@
 package com.morkva.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -11,9 +15,11 @@ public class Project {
     @GeneratedValue
     private Integer id;
 
+    @NotNull
     private String name;
 
     @Column(name = "short_description")
+    @NotNull
     private String shortDescr;
 
     @Column(name = "current_money")
@@ -28,6 +34,9 @@ public class Project {
 
     @Column(name = "ending_date")
     @Temporal(TemporalType.DATE)
+    @NotNull
+    @Future
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date endingDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -40,6 +49,7 @@ public class Project {
 
     @OneToOne
     @JoinColumn(name = "full_description_id")
+    @NotNull
     private FullDescription fullDescription;
 
     @Column(name = "successfully_finished")
@@ -197,5 +207,25 @@ public class Project {
 
     public void setSuccessfullyFinished(boolean successfullyFinished) {
         this.successfullyFinished = successfullyFinished;
+    }
+
+    public void setNeedMoney(int needMoney) {
+        this.needMoney = needMoney;
+    }
+
+    public void setAddingDate(Date addingDate) {
+        this.addingDate = addingDate;
+    }
+
+    public void setEndingDate(Date endingDate) {
+        this.endingDate = endingDate;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setFullDescription(FullDescription fullDescription) {
+        this.fullDescription = fullDescription;
     }
 }
