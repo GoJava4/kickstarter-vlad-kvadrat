@@ -2,8 +2,11 @@ package com.morkva.controllers;
 
 import com.morkva.entities.Category;
 import com.morkva.entities.Project;
+import com.morkva.entities.Quote;
 import com.morkva.services.CategoryService;
 import com.morkva.services.ProjectService;
+import com.morkva.services.QuoteService;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -14,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.ui.ModelMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +29,9 @@ public class CategoryControllerTest {
 
     @Mock
     CategoryService categoryService;
+
+    @Mock
+    QuoteService quoteService;
 
     @InjectMocks
     CategoryController categoryController;
@@ -64,5 +71,24 @@ public class CategoryControllerTest {
     @Test
     public void testDeleteCategory() throws Exception {
 
+    }
+
+    @Test
+    public void testShowCategories() throws Exception {
+        Quote expectedQuote = new Quote();
+        List<Category> expectedCategories = Arrays.asList(new Category(), new Category(), new Category());
+        Mockito.when(quoteService.getRandom()).thenReturn(expectedQuote);
+        Mockito.when(categoryService.getAll()).thenReturn(expectedCategories);
+
+        ModelMap model = new ModelMap();
+
+        String viewName = categoryController.showCategories(model);
+
+        Assert.assertEquals("categories", viewName);
+
+        Assert.assertSame(expectedQuote, model.get("quote"));
+        Assert.assertSame(expectedCategories, model.get("list"));
+        Mockito.verify(quoteService).getRandom();
+        Mockito.verify(categoryService).getAll();
     }
 }

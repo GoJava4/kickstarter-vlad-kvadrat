@@ -5,6 +5,7 @@ import com.morkva.entities.Project;
 import com.morkva.exceptions.NotFound404Exception;
 import com.morkva.services.CategoryService;
 import com.morkva.services.ProjectService;
+import com.morkva.services.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping("/category/{categoryId}")
+@RequestMapping("/cat")
 public class CategoryController {
 
     @Autowired
@@ -24,7 +25,18 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @Autowired
+    private QuoteService quoteService;
+
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String showCategories(ModelMap model) {
+
+        model.addAttribute("quote", quoteService.getRandom());
+        model.addAttribute("list", categoryService.getAll());
+        return "categories";
+    }
+
+    @RequestMapping(value = "/{categoryId}", method = RequestMethod.GET)
     public String showCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
 
@@ -37,7 +49,7 @@ public class CategoryController {
         return "category";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/{categoryId}/add", method = RequestMethod.GET)
     public String addCategory(ModelMap modelMap, @PathVariable int categoryId) {
         if (categoryService.getById(categoryId) == null) {
             throw new NotFound404Exception();
@@ -45,7 +57,7 @@ public class CategoryController {
         return "category";
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.DELETE)
     public String deleteCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
         categoryService.delete(category);
