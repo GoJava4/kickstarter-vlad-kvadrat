@@ -6,10 +6,11 @@
         <ul>
             <li>Spring Core</li>
             <li>Spring MVC</li>
+            <li>Spring Security</li>
             <li>Spring JDBC Template</li>
         </ul>
     </li>
-    <li>Data Bases
+    <li>Databases
         <ul>
             <li>JDBC</li>
             <li>Hibernate</li>
@@ -20,6 +21,7 @@
         <ul>
             <li>JUnit</li>
             <li>DBUnit</li>
+            <li>Mockito</li>
             <li>Spring Tests</li>
         </ul>
     </li>
