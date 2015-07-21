@@ -14,4 +14,6 @@ public interface ProjectService {
     void update(Project project);
 
     Project donate(Integer id, Double amount, User user);
+
+    void create(Project projectToAdd);
 }

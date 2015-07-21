@@ -72,6 +72,11 @@ public class ProjectServiceImpl implements ProjectService {
         return project;
     }
 
+    @Override
+    public void create(Project projectToAdd) {
+        projectDAO.create(projectToAdd);
+    }
+
     private PaymentBonus checkForBonusForPayment(Double amount, Project project) {
         List<PaymentBonus> paymentBonusesOfProject = paymentBonusDao.getPaymentBonusesOfProject(project);
         int lastElem = paymentBonusesOfProject.size() - 1;
