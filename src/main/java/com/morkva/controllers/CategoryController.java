@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping("/category")
+@RequestMapping("/category/{categoryId}")
 public class CategoryController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping(value = "/{categoryId}", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String showCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
 
@@ -37,7 +37,7 @@ public class CategoryController {
         return "category";
     }
 
-    @RequestMapping(value = "/{categoryId}/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addCategory(ModelMap modelMap, @PathVariable int categoryId) {
         if (categoryService.getById(categoryId) == null) {
             throw new NotFound404Exception();
@@ -45,7 +45,7 @@ public class CategoryController {
         return "category";
     }
 
-    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public String deleteCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
         categoryService.delete(category);

@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class StaticPagesController {
 
-    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/home", "/categories"}, method = RequestMethod.GET)
     public String showHome(ModelMap modelMap) {
         //TODO create home page
-        return "redirect:/categories";
+        return "redirect:/category";
     }
 
     @RequestMapping(value = "/contacts", method = RequestMethod.GET)

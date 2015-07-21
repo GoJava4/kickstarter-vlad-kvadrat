@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/categories")
+@RequestMapping("/category")
 public class CategoriesController {
 
     @Autowired
