@@ -11,4 +11,13 @@ public interface ProjectDao extends Dao<Project> {
     List<Project> getProjectsOfCategory(Category category);
     List<Project> getProjectsOfUser(User user);
 
+    List<Project> getAllFinishedProjects();
+
+    List<Project> getFinishedProjectsOf(Category category);
+
+    List<Project> getFinishedProjectsOf(User user);
+
+    List<Project> getNotFinishedProjectsOf(Category category);
+
+    List<Project> getNotFinishedProjectsOf(User user);
 }

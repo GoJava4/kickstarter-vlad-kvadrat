@@ -26,6 +26,11 @@ public class UserDetailsServiceImpl implements UserDetailsServiceExtended {
     }
 
     @Override
+    public User getById(Integer userId) {
+        return userDao.getById(userId);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Assembler assembler = new Assembler();
         User user = userDao.getByLogin(s);

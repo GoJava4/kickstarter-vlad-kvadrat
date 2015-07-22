@@ -35,4 +35,53 @@ public class ProjectDaoImpl extends AbstractDao<Project> implements ProjectDao {
                 .addOrder(Order.asc("name"))
                 .list();
     }
+
+    @Override
+    public List<Project> getAllFinishedProjects() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createCriteria(Project.class)
+                .add(Restrictions.eq("successfullyFinished", true))
+                .addOrder(Order.asc("name"))
+                .list();
+    }
+
+    @Override
+    public List<Project> getFinishedProjectsOf(Category category) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createCriteria(Project.class)
+                .add(Restrictions.eq("successfullyFinished", true))
+                .add(Restrictions.eq("category.id", category.getId()))
+                .addOrder(Order.asc("name"))
+                .list();
+    }
+
+    @Override
+    public List<Project> getFinishedProjectsOf(User user) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createCriteria(Project.class)
+                .add(Restrictions.eq("successfullyFinished", true))
+                .add(Restrictions.eq("user.id", user.getId()))
+                .addOrder(Order.asc("name"))
+                .list();
+    }
+
+    @Override
+    public List<Project> getNotFinishedProjectsOf(Category category) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createCriteria(Project.class)
+                .add(Restrictions.eq("successfullyFinished", false))
+                .add(Restrictions.eq("category.id", category.getId()))
+                .addOrder(Order.asc("name"))
+                .list();
+    }
+
+    @Override
+    public List<Project> getNotFinishedProjectsOf(User user) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createCriteria(Project.class)
+                .add(Restrictions.eq("successfullyFinished", false))
+                .add(Restrictions.eq("user.id", user.getId()))
+                .addOrder(Order.asc("name"))
+                .list();
+    }
 }

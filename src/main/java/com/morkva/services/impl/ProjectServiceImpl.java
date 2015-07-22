@@ -29,7 +29,6 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private PaymentStatusService paymentStatusService;
 
-
     @Override
     public List<Project> getProjectsOfCategory(Category category) {
         return projectDAO.getProjectsOfCategory(category);
@@ -75,6 +74,63 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public void create(Project projectToAdd) {
         projectDAO.create(projectToAdd);
+    }
+
+    @Override
+    public void simpleCreate(Project project) {
+        Project result = new Project.Builder()
+                .setShortDescr(project.getShortDescr())
+                .setCategory(project.getCategory())
+                .setNeedMoney(project.getNeedMoney())
+                .setEndingDate(project.getEndingDate())
+                .setFullDescription(project.getFullDescription())
+                .setUser(project.getUser())
+                .setName(project.getName())
+                .setCurrentMoney(0)
+                .setAddingDate(new Date())
+                .setSuccessfullyFinished(false)
+                .build();
+        create(result);
+    }
+
+    @Override
+    public void delete(Project project) {
+        projectDAO.delete(project);
+    }
+
+    @Override
+    public List<Project> getProjectsOf(User user) {
+        return projectDAO.getProjectsOfUser(user);
+    }
+
+    @Override
+    public List<Project> getProjectsOf(Category category) {
+        return projectDAO.getProjectsOfCategory(category);
+    }
+
+    @Override
+    public List<Project> getAllFinishedProjects() {
+        return projectDAO.getAllFinishedProjects();
+    }
+
+    @Override
+    public List<Project> getFinishedProjectsOf(Category category) {
+        return projectDAO.getFinishedProjectsOf(category);
+    }
+
+    @Override
+    public List<Project> getFinishedProjectsOf(User user) {
+        return projectDAO.getFinishedProjectsOf(user);
+    }
+
+    @Override
+    public List<Project> getNotFinishedProjectsOf(Category category) {
+        return projectDAO.getNotFinishedProjectsOf(category);
+    }
+
+    @Override
+    public List<Project> getNotFinishedProjectsOf(User user) {
+        return projectDAO.getNotFinishedProjectsOf(user);
     }
 
     private PaymentBonus checkForBonusForPayment(Double amount, Project project) {

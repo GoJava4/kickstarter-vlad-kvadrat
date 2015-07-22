@@ -99,8 +99,7 @@ public class ProjectController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String addProject(@Valid @ModelAttribute("project") Project project,
                              BindingResult bindingResult,
-                             @RequestParam(value = "category_id") int categoryId,
-                             ModelMap model) {
+                             @RequestParam(value = "category_id") int categoryId) {
         if (bindingResult.hasErrors()) {
             return "addProject";
         }
