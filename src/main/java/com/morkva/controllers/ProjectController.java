@@ -71,11 +71,7 @@ public class ProjectController {
             return "redirect:/project/" + projectId;
         }
 
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        com.morkva.entities.User userByLogin = userDetailsService.getUserByLogin(user.getUsername());
-
-        projectService.donate(projectId, payment.getAmount(), userByLogin);
+        projectService.donate(projectId, payment.getAmount(), getCurrentUser());
         return "redirect:/project/" + projectId;
     }
 
