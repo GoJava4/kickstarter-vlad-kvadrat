@@ -7,4 +7,6 @@ public interface UserDetailsServiceExtended extends UserDetailsService {
     User getUserByLogin(String login);
 
     User getById(Integer userId);
+
+    void create(User user);
 }

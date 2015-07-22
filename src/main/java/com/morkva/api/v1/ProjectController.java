@@ -61,26 +61,16 @@ public class ProjectController {
                                   @RequestBody(required = false) Date endingDate,
                                   @RequestBody(required = false) User user,
                                   @RequestBody(required = false) Category category,
-                                  @RequestBody(required = false) FullDescription fullDescription,
-                                  @RequestParam(value = "finished", required = false) Boolean finished) {
+                                  @RequestBody(required = false) FullDescription fullDescription) {
         Project project = projectService.getById(id);
-        if (name == null) {name = project.getName();}
-        if (name == null) {shortDescr = project.getShortDescr();}
-        if (name == null) {neededMoney = project.getNeedMoney();}
-        if (name == null) {endingDate = project.getEndingDate();}
-        if (name == null) {user = project.getUser();}
-        if (name == null) {category = project.getCategory();}
-        if (name == null) {fullDescription = project.getFullDescription();}
-        if (name == null) {finished = project.isSuccessfullyFinished();}
+        if (name != null) {project.setName(name);}
+        if (shortDescr != null) {project.setShortDescr(shortDescr);}
+        if (neededMoney != null) {project.setNeedMoney(neededMoney);}
+        if (endingDate != null) {project.setEndingDate(endingDate);}
+        if (user != null) {project.setUser(user);}
+        if (category != null) {project.setCategory(category);}
+        if (fullDescription != null) {project.setFullDescription(fullDescription);}
 
-        project.setName(name);
-        project.setShortDescr(shortDescr);
-        project.setNeedMoney(neededMoney);
-        project.setEndingDate(endingDate);
-        project.setUser(user);
-        project.setCategory(category);
-        project.setFullDescription(fullDescription);
-        project.setSuccessfullyFinished(finished);
         projectService.update(project);
     }
 
