@@ -1,12 +1,14 @@
 package com.morkva.api.v1;
 
-import com.morkva.entities.*;
+import com.morkva.entities.Category;
+import com.morkva.entities.FullDescription;
+import com.morkva.entities.Project;
+import com.morkva.entities.User;
 import com.morkva.services.CategoryService;
 import com.morkva.services.PaymentService;
 import com.morkva.services.ProjectService;
 import com.morkva.services.UserDetailsServiceExtended;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
