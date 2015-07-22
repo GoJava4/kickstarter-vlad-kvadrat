@@ -47,6 +47,6 @@ public class CategoryController {
     @RequestMapping(value = "/{id}/getAllProjects", method = RequestMethod.GET)
     public List<Project> getAllProjectsOfCategoryById (@PathVariable int id){
         Category category = categoryService.getById(id);
-        return projectService.getProjectsOfCategory(category);
+        return projectService.getProjectsOf(category);
     }
 }
