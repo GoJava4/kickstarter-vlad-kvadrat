@@ -39,7 +39,7 @@ public class Project {
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date endingDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 

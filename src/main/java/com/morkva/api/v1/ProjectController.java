@@ -32,6 +32,9 @@ public class ProjectController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Project getProjectById(@PathVariable int id) {
+        Project project = projectService.getById(id);
+        System.out.println("PROJECT = " + project);
+        System.out.println(project.getCategory());
         return projectService.getById(id);
     }
 
