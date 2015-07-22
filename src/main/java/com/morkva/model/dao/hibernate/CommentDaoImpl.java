@@ -2,6 +2,7 @@ package com.morkva.model.dao.hibernate;
 
 import com.morkva.entities.Comment;
 import com.morkva.entities.Project;
+import com.morkva.entities.User;
 import com.morkva.model.dao.CommentDao;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
@@ -22,7 +23,16 @@ public class CommentDaoImpl extends AbstractDao<Comment> implements CommentDao {
         Session session = sessionFactory.getCurrentSession();
         return session.createCriteria(Comment.class)
                 .add(Restrictions.eq("project.id", project.getId()))
-                .addOrder(Order.asc("date"))
+                .addOrder(Order.desc("date"))
+                .list();
+    }
+
+    @Override
+    public List<Comment> getCommentsOfUser(User user) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createCriteria(Comment.class)
+                .add(Restrictions.eq("user.id", user.getId()))
+                .addOrder(Order.desc("date"))
                 .list();
     }
 }

@@ -32,9 +32,6 @@ public class ProjectController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Project getProjectById(@PathVariable int id) {
-        Project project = projectService.getById(id);
-        System.out.println("PROJECT = " + project);
-        System.out.println(project.getCategory());
         return projectService.getById(id);
     }
 
@@ -42,10 +39,10 @@ public class ProjectController {
     public void createProject(@RequestParam(value = "name", required = true) String name,
                               @RequestParam(value = "shortDescr", required = true) String shortDescr,
                               @RequestParam(value = "neededMoney", required = true) int neededMoney,
-                              @RequestParam(value = "endingDate", required = true) Date endingDate,
-                              @RequestParam(value = "user", required = true) User user,
-                              @RequestParam(value = "category", required = true) Category category,
-                              @RequestParam(value = "fullDescr", required = true) FullDescription fullDescription) {
+                              @RequestBody(required = true) Date endingDate,
+                              @RequestBody(required = true) User user,
+                              @RequestBody(required = true) Category category,
+                              @RequestBody(required = true) FullDescription fullDescription) {
         Project project = new Project.Builder()
                 .setName(name)
                 .setShortDescr(shortDescr)

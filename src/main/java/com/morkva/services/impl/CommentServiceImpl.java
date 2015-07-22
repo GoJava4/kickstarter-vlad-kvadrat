@@ -34,4 +34,35 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getCommentsOfProject(Project project) {
         return commentDao.getCommentsOfProject(project);
     }
+
+    @Override
+    public Comment getById(Integer id) {
+        return commentDao.getById(id);
+    }
+
+    @Override
+    public void update(Comment comment) {
+        commentDao.update(comment);
+    }
+
+    @Override
+    public void delete(Comment comment) {
+        commentDao.delete(comment);
+    }
+
+    @Override
+    public List<Comment> getCommentsOf(User user) {
+        return commentDao.getCommentsOfUser(user);
+    }
+
+    @Override
+    public List<Comment> getCommentsOf(Project project) {
+        return commentDao.getCommentsOfProject(project);
+    }
+
+    @Override
+    public void create(Comment comment) {
+        comment.setDate(new Date());
+        commentDao.create(comment);
+    }
 }
