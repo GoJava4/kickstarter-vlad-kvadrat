@@ -1,10 +1,8 @@
 package com.morkva.api.v1;
 
-import com.morkva.entities.Category;
-import com.morkva.entities.FullDescription;
-import com.morkva.entities.Project;
-import com.morkva.entities.User;
+import com.morkva.entities.*;
 import com.morkva.services.CategoryService;
+import com.morkva.services.PaymentService;
 import com.morkva.services.ProjectService;
 import com.morkva.services.UserDetailsServiceExtended;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +24,9 @@ public class ProjectController {
 
     @Autowired
     ProjectService projectService;
+
+    @Autowired
+    PaymentService paymentService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Project getProjectById(@PathVariable int id) {
@@ -135,6 +136,14 @@ public class ProjectController {
     public List<Project> getAllNotFinishedProjectsOfUser(@PathVariable int userId) {
         User user = userService.getById(userId);
         return projectService.getNotFinishedProjectsOf(user);
+    }
+
+    @RequestMapping(value = "/{id}/donate", method = RequestMethod.POST)
+    public void donate(@PathVariable int id,
+                          @RequestParam double amount,
+                          @RequestBody User user){
+        Payment payment = new Payment();
+        projectService.donate(id, amount, user);
     }
 
 }
