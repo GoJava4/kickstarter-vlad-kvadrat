@@ -28,7 +28,7 @@ public class CategoryController {
     @Autowired
     private QuoteService quoteService;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String showCategories(ModelMap model) {
 
         model.addAttribute("quote", quoteService.getRandom());
@@ -50,7 +50,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/{categoryId}/add", method = RequestMethod.GET)
-    public String addCategory(ModelMap modelMap, @PathVariable int categoryId) {
+    public String addCategory(@PathVariable int categoryId) {
         if (categoryService.getById(categoryId) == null) {
             throw new NotFound404Exception();
         }
@@ -58,7 +58,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.GET)
-    public String deleteCategory(ModelMap modelMap, @PathVariable int categoryId) {
+    public String deleteCategory(@PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
         categoryService.delete(category);
         return "redirect:/categories";
