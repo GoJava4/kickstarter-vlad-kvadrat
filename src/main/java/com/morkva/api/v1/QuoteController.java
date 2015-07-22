@@ -12,7 +12,7 @@ public class QuoteController {
     @Autowired
     QuoteService quoteService;
 
-    @RequestMapping(value = "/random", method = RequestMethod.GET, headers = "Accept: application/json")
+    @RequestMapping(value = "/random", method = RequestMethod.GET)
     public Quote getRandomQuote(){
         return quoteService.getRandom();
     }
