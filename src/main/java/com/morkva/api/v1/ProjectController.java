@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/project")
 public class ProjectController {
 
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Project getProjectById(@PathVariable int id) {
         return null;
     }
@@ -30,7 +30,7 @@ public class ProjectController {
         // mb return id?
     }
 
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}/update", method = RequestMethod.PUT)
     public void updateProjectById(@PathVariable int id,
                                   @RequestParam(value = "name", required = false) String name,
                                   @RequestParam(value = "shortDescr", required = false) String shortDescr,
@@ -43,25 +43,25 @@ public class ProjectController {
         //update project by id
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}/delete", method = RequestMethod.DELETE)
     public void deleteProjectById(@PathVariable int id) {
         //delete project by id
     }
 
-    @RequestMapping(value = "/getCurrentMoneyOfProject/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/getCurrentMoney", method = RequestMethod.GET)
     public double getCurrentMoneyOfProject(@PathVariable int id) {
         //getCurrentMoneyOfProject
-        //less info to return
+        //less info to return than just get all project
         return 0;
     }
 
-    @RequestMapping(value = "/getAllProjectsOfCategory/{id}", method = RequestMethod.GET)
-    public List<Project> getAllProjectsOfCategoryById(@PathVariable int id) {
+    @RequestMapping(value = "/getAllProjectsOfCategory/{categoryId}", method = RequestMethod.GET)
+    public List<Project> getAllProjectsOfCategoryById(@PathVariable int categoryId) {
         return null;
     }
 
-    @RequestMapping(value = "/getAllProjectsOfUser/{id}", method = RequestMethod.GET)
-    public List<Project> getAllProjectsOfUserById(@PathVariable int id) {
+    @RequestMapping(value = "/getAllProjectsOfUser/{userId}", method = RequestMethod.GET)
+    public List<Project> getAllProjectsOfUserById(@PathVariable int userId) {
         return null;
     }
 
@@ -70,13 +70,23 @@ public class ProjectController {
         return null;
     }
 
-    @RequestMapping(value = "/getAllFinishedProjectsOfCategory/{id}", method = RequestMethod.GET)
-    public List<Project> getAllFinishedProjectsOfCategory(@PathVariable int id) {
+    @RequestMapping(value = "/getAllFinishedProjectsOfCategory/{categoryId}", method = RequestMethod.GET)
+    public List<Project> getAllFinishedProjectsOfCategory(@PathVariable int categoryId) {
         return null;
     }
 
-    @RequestMapping(value = "/getAllFinishedProjectsOfUser/{id}", method = RequestMethod.GET)
-    public List<Project> getAllFinishedProjectsOfUser(@PathVariable int id) {
+    @RequestMapping(value = "/getAllFinishedProjectsOfUser/{userId}", method = RequestMethod.GET)
+    public List<Project> getAllFinishedProjectsOfUser(@PathVariable int userId) {
+        return null;
+    }
+
+    @RequestMapping(value = "/getAllNotFinishedProjectsOfCategory/{categoryId}", method = RequestMethod.GET)
+    public List<Project> getAllNotFinishedProjectsOfCategory(@PathVariable int categoryId) {
+        return null;
+    }
+
+    @RequestMapping(value = "/getAllNotFinishedProjectsOfUser/{userId}", method = RequestMethod.GET)
+    public List<Project> getAllNotFinishedProjectsOfUser(@PathVariable int userId) {
         return null;
     }
 
