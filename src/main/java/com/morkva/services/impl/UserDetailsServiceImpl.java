@@ -31,6 +31,11 @@ public class UserDetailsServiceImpl implements UserDetailsServiceExtended {
     }
 
     @Override
+    public void create(User user) {
+        userDao.create(user);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Assembler assembler = new Assembler();
         User user = userDao.getByLogin(s);
