@@ -10,12 +10,12 @@ import java.util.List;
 @RequestMapping("/api/v1/category")
 public class CategoryController {
 
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Category getCategoryById (@PathVariable int id){
         return null;
     }
 
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}/update", method = RequestMethod.PUT)
     public void updateCategoryById (@PathVariable int id, @RequestParam String name){
         //update category name by id
     }
@@ -25,7 +25,7 @@ public class CategoryController {
         //create category using name
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}/delete", method = RequestMethod.DELETE)
     public void deleteCategoryById (@PathVariable int id, @RequestParam String name){
         //delete category by id
     }

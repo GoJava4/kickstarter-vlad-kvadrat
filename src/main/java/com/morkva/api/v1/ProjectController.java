@@ -27,7 +27,6 @@ public class ProjectController {
                               @RequestParam(value = "category", required = true) Category category,
                               @RequestParam(value = "fullDescr", required = true) FullDescription fullDescription) {
         //create project,
-        // mb return id?
     }
 
     @RequestMapping(value = "/{id}/update", method = RequestMethod.PUT)

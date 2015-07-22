@@ -12,7 +12,7 @@ public class QuoteController {
     @Autowired
     QuoteService quoteService;
 
-    @RequestMapping(value = "/random", method = RequestMethod.GET, headers = "Accept = application/json")
+    @RequestMapping(value = "/random", method = RequestMethod.GET, headers = "Accept: application/json")
     public Quote getRandomQuote(){
         return quoteService.getRandom();
     }
@@ -30,6 +30,11 @@ public class QuoteController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public void deleteQuoteById(@PathVariable int id){
         //deleteQuoteById
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, headers = "Accept: application/json")
+    public Quote getQuoteById(@PathVariable int id){
+        return quoteService.getRandom();
     }
 
 }
