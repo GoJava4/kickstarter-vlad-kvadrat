@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping("/cat")
+@RequestMapping("/category")
 public class CategoryController {
 
     @Autowired
@@ -57,7 +57,7 @@ public class CategoryController {
         return "category";
     }
 
-    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.GET)
     public String deleteCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
         categoryService.delete(category);
