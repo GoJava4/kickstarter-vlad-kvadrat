@@ -47,7 +47,7 @@ public class Project {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "full_description_id")
     @NotNull
     private FullDescription fullDescription;

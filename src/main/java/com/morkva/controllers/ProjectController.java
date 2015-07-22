@@ -37,6 +37,9 @@ public class ProjectController {
     @Autowired
     private QuestionService questionService;
 
+    @Autowired
+    private FullDescriptionService fullDescriptionService;
+
 
     @RequestMapping(value = "{projectId}", method = RequestMethod.GET)
     public String showProject(Model model, @PathVariable int projectId) {
@@ -127,9 +130,9 @@ public class ProjectController {
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {
-        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("dd-MM-yyyy"), true, 10));
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
 
 
