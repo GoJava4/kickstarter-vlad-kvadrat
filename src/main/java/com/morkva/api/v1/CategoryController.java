@@ -30,7 +30,7 @@ public class CategoryController {
         //delete category by id
     }
 
-    @RequestMapping(value = "/{id}/get_projects", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/getAllProjects", method = RequestMethod.GET)
     public List<Project> getAllProjectsOfCategoryById (@PathVariable int id){
         //get all projects of the category
         return null;
