@@ -18,4 +18,20 @@ public class QuoteServiceImpl implements QuoteService {
     public Quote getRandom() {
         return quoteDAO.getRandom();
     }
+
+    @Override
+    public void create(Quote quote) {
+        quoteDAO.create(quote);
+    }
+
+    @Override
+    public Quote getById(int id) {
+        return quoteDAO.getById(id);
+    }
+
+    @Override
+    public void update(Quote quote) {
+        quoteDAO.update(quote);
+    }
+
 }

@@ -18,23 +18,30 @@ public class QuoteController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void createQuote(@RequestParam String quote){
-        //createNewQuote
+    public void createQuote(@RequestParam String quote, @RequestParam String author){
+        Quote qu = new Quote();
+        qu.setValue(quote);
+        qu.setAuthor(author);
+        quoteService.create(qu);
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
-    public void updateQuoteById(@PathVariable int id, @RequestParam String quote){
-        //updateQuoteById
+    public void updateQuoteById(@PathVariable int id, @RequestParam String quote, @RequestParam String author){
+        Quote qu = quoteService.getById(id);
+        qu.setValue(quote);
+        qu.setAuthor(author);
+        quoteService.update(qu);
+
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-    public void deleteQuoteById(@PathVariable int id){
-        //deleteQuoteById
-    }
+//    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+//    public void deleteQuoteById(@PathVariable int id){
+//        //deleteQuoteById
+//    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, headers = "Accept: application/json")
     public Quote getQuoteById(@PathVariable int id){
-        return quoteService.getRandom();
+        return quoteService.getById(id);
     }
 
 }
