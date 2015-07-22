@@ -142,7 +142,6 @@ public class ProjectController {
     public void donate(@PathVariable int id,
                           @RequestParam double amount,
                           @RequestBody User user){
-        Payment payment = new Payment();
         projectService.donate(id, amount, user);
     }
 

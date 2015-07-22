@@ -150,8 +150,6 @@ public class ProjectServiceImpl implements ProjectService {
         }
     }
 
-
-
     private void createPayment(Double amount, User user, Project project, PaymentBonus paymentBonus) {
         PaymentStatus okStatus = paymentStatusService.getById(1);
 
