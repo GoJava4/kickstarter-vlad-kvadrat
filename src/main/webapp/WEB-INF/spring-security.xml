@@ -8,14 +8,14 @@
                  http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/categories" access="permitAll"/>
+        <intercept-url pattern="/category" access="permitAll"/>
         <intercept-url pattern="/category/*" access="permitAll"/>
         <intercept-url pattern="/category/**" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/project/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/project/*/comments/add" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/project/*/donate" access="hasRole('ROLE_USER')"/>
         <logout logout-url="/logout"
-                logout-success-url="/categories"/>
+                logout-success-url="/category"/>
         <form-login authentication-failure-url="http://cdn.alltheragefaces.com/img/faces/large/fuck-yeah-gtfo-l.png" />
         <anonymous username="guest"
                    granted-authority="ROLE_ANONYMOUS"/>

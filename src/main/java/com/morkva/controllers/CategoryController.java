@@ -5,6 +5,7 @@ import com.morkva.entities.Project;
 import com.morkva.exceptions.NotFound404Exception;
 import com.morkva.services.CategoryService;
 import com.morkva.services.ProjectService;
+import com.morkva.services.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,6 +25,17 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private QuoteService quoteService;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String showCategories(ModelMap model) {
+
+        model.addAttribute("quote", quoteService.getRandom());
+        model.addAttribute("list", categoryService.getAll());
+        return "categories";
+    }
+
     @RequestMapping(value = "/{categoryId}", method = RequestMethod.GET)
     public String showCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
@@ -38,15 +50,15 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/{categoryId}/add", method = RequestMethod.GET)
-    public String addCategory(ModelMap modelMap, @PathVariable int categoryId) {
+    public String addCategory(@PathVariable int categoryId) {
         if (categoryService.getById(categoryId) == null) {
             throw new NotFound404Exception();
         }
         return "category";
     }
 
-    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.DELETE)
-    public String deleteCategory(ModelMap modelMap, @PathVariable int categoryId) {
+    @RequestMapping(value = "/{categoryId}/delete", method = RequestMethod.GET)
+    public String deleteCategory(@PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
         categoryService.delete(category);
         return "redirect:/categories";
