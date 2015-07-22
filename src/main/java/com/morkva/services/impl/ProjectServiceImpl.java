@@ -30,11 +30,6 @@ public class ProjectServiceImpl implements ProjectService {
     private PaymentStatusService paymentStatusService;
 
     @Override
-    public List<Project> getProjectsOfCategory(Category category) {
-        return projectDAO.getProjectsOfCategory(category);
-    }
-
-    @Override
     public Project getById(Integer projectId) {
         return projectDAO.getById(projectId);
     }

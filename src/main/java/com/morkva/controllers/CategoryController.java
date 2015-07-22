@@ -40,7 +40,7 @@ public class CategoryController {
     public String showCategory(ModelMap modelMap, @PathVariable int categoryId) {
         Category category = categoryService.getById(categoryId);
 
-        List<Project> projectsForCategory = projectService.getProjectsOfCategory(category);
+        List<Project> projectsForCategory = projectService.getProjectsOf(category);
 
         modelMap.addAttribute("projects", projectsForCategory);
         modelMap.addAttribute("category_name", category.getName());

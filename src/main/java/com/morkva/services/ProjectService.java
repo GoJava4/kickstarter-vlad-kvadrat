@@ -7,9 +7,6 @@ import com.morkva.entities.User;
 import java.util.List;
 
 public interface ProjectService {
-    @Deprecated
-    List<Project> getProjectsOfCategory(Category category);
-
     Project getById(Integer projectId);
 
     void update(Project project);
