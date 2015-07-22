@@ -16,7 +16,8 @@
         <intercept-url pattern="/project/*/donate" access="hasRole('ROLE_USER')"/>
         <logout logout-url="/logout"
                 logout-success-url="/category"/>
-        <form-login authentication-failure-url="http://cdn.alltheragefaces.com/img/faces/large/fuck-yeah-gtfo-l.png" />
+        <form-login
+                authentication-success-handler-ref="savedRequestAwareAuthenticationSuccessHandler" authentication-failure-url="http://cdn.alltheragefaces.com/img/faces/large/fuck-yeah-gtfo-l.png" />
         <anonymous username="guest"
                    granted-authority="ROLE_ANONYMOUS"/>
         <csrf disabled="true"/>
