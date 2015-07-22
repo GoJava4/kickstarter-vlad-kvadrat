@@ -1,7 +1,9 @@
 package com.morkva.services.impl;
 
 import com.morkva.entities.User;
+import com.morkva.entities.UserRole;
 import com.morkva.model.dao.UserDao;
+import com.morkva.model.dao.UserRoleDao;
 import com.morkva.services.UserDetailsServiceExtended;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,6 +22,9 @@ public class UserDetailsServiceImpl implements UserDetailsServiceExtended {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private UserRoleDao userRoleDao;
+
     @Override
     public User getUserByLogin(String login) {
         return userDao.getByLogin(login);
@@ -32,7 +37,19 @@ public class UserDetailsServiceImpl implements UserDetailsServiceExtended {
 
     @Override
     public void create(User user) {
+        user.setRole(userRoleDao.getById(2)); //ROLE_USER
+        user.setActive(true);
         userDao.create(user);
+    }
+
+    @Override
+    public void update(User user) {
+        userDao.update(user);
+    }
+
+    @Override
+    public void delete(User user) {
+        userDao.delete(user);
     }
 
     @Override

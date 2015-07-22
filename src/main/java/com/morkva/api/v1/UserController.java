@@ -2,6 +2,7 @@ package com.morkva.api.v1;
 
 import com.morkva.entities.Project;
 import com.morkva.entities.User;
+import com.morkva.services.ProjectService;
 import com.morkva.services.UserDetailsServiceExtended;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,6 +16,9 @@ public class UserController {
 
     @Autowired
     UserDetailsServiceExtended userService;
+
+    @Autowired
+    ProjectService projectService;
 
     @RequestMapping(value = "/{id]", method = RequestMethod.GET)
     public User getUserById(@PathVariable int id) {
@@ -49,20 +53,26 @@ public class UserController {
         if (email != null) {user.setEmail(email);}
         if (username != null) {user.setUsername(username);}
         if (personalInfo != null) {user.setPersonalInfo(personalInfo);}
-        userService.create(user);
+        userService.update(user);
     }
 
     @RequestMapping(value = "/{id]/delete", method = RequestMethod.DELETE)
     public void deleteUserById(@PathVariable int id) {
+        User user = userService.getById(id);
+        userService.delete(user);
     }
 
     @RequestMapping(value = "/{id}/getAllProjects", method = RequestMethod.GET)
     public List<Project> getAllProjectsOfUser(@PathVariable int id) {
-        return null;
+        User user = userService.getById(id);
+        return projectService.getProjectsOf(user);
     }
 
     @RequestMapping(value = "/{id}/getAllFinishedProjects", method = RequestMethod.GET)
     public List<Project> getAllFinishedProjectsOfUser(@PathVariable int id) {
-        return null;
+        User user = userService.getById(id);
+        return projectService.getFinishedProjectsOf(user);
     }
+
+
 }

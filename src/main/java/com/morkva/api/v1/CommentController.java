@@ -1,6 +1,5 @@
 package com.morkva.api.v1;
 
-import com.morkva.entities.Category;
 import com.morkva.entities.Comment;
 import com.morkva.entities.Project;
 import com.morkva.entities.User;
