@@ -1,6 +1,7 @@
 package com.morkva.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "full_descriptions")
@@ -11,6 +12,7 @@ public class FullDescription {
     private Integer id;
 
     @Column(name = "full_description")
+    @NotNull
     private String value;
 
     public FullDescription() {
