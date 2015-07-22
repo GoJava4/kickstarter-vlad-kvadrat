@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface ProjectDao extends Dao<Project> {
 
-    List<Project> getProjectsOfCategory(Category category);
     List<Project> getProjectsOfUser(User user);
+
+    List<Project> getProjectsOfCategory(Category category);
 
     List<Project> getAllFinishedProjects();
 

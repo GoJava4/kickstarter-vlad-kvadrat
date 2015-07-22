@@ -54,7 +54,7 @@ public class ProjectServiceImplTest {
     public void testGetProjectsOfCategory() {
         Category category = new Category();
         when(projectDAO.getProjectsOfCategory(category)).thenReturn(new LinkedList<>(Collections.singletonList(new Project())));
-        Assert.assertTrue(projectService.getProjectsOfCategory(category).size() == 1);
+        Assert.assertTrue(projectService.getProjectsOf(category).size() == 1);
     }
 
     @Test

@@ -54,7 +54,7 @@ public class CategoryControllerTest {
         List<Project> expectedProjectsOfCategory = Arrays.asList(new Project(), new Project(), new Project());
 
         Mockito.when(categoryService.getById(1)).thenReturn(expectedCategory);
-        Mockito.when(projectService.getProjectsOfCategory(expectedCategory)).thenReturn(expectedProjectsOfCategory);
+        Mockito.when(projectService.getProjectsOf(expectedCategory)).thenReturn(expectedProjectsOfCategory);
 
         this.mockMvc.perform(MockMvcRequestBuilders.get("/category/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
