@@ -5,16 +5,16 @@ import com.morkva.services.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/quote")
+@RestController(value = "restQuoteController")
+@RequestMapping("/api/v1/quote")
 public class QuoteController {
 
     @Autowired
     QuoteService quoteService;
 
-    @RequestMapping(value = "/random", method = RequestMethod.GET)
+    @RequestMapping(value = "/random", method = RequestMethod.GET, headers = "Accept = application/json")
     public Quote getRandomQuote(){
-        return null;
+        return quoteService.getRandom();
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)

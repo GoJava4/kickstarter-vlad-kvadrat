@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
-@RestController
-@RequestMapping("/project")
+@RestController(value = "restProjectController")
+@RequestMapping("/api/v1/project")
 public class ProjectController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

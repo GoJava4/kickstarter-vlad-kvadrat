@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/user")
+@RestController(value = "restUserController")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     @RequestMapping(value = "/{id]", method = RequestMethod.GET)
