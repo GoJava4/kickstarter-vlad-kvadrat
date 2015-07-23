@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/resources/css/morkva.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Contacts</title>
+</head>
+<body>
+<div class="container">
+    <div th:include="menu :: menu('categories')"></div>
+    <div class="panel panel-default">
+        <h1 th:text="${quote.getQuote()}"></h1>
+
+        <h1>Categories</h1>
+        <table>
+            <tbody>
+            <tr th:each="c:${list}">
+                <td>
+                    <a th:href="@{/category/{c_id}/(c_id=${c.id})}" th:text="${c.name}"></a>
+                </td>
+                <td class="text-right">
+                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                        <form method="post">
+                            <button class="btn btn-xs btn-danger"
+                                    th:action="@{/category/{categoryId}/delete(categoryId=${c.id})}" type="submit">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

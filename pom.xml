@@ -84,6 +84,28 @@
             <version>2.6.0</version>
         </dependency>
 
+        <!-- THYMELEAF TEMPLATE ENGINE-->
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>2.1.4.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>2.1.4.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+            <version>2.1.2.RELEASE</version>
+        </dependency>
+
+
+
         <!-- Databases -->
 
         <dependency>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/resources/css/morkva.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Add Project</title>
+    <script type="text/javascript" src="http://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            theme: "modern",
+            plugins: [
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table contextmenu directionality",
+                "emoticons template paste textcolor colorpicker textpattern imagetools"
+            ],
+            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            toolbar2: "print preview media | forecolor backcolor emoticons",
+            image_advtab: true,
+            templates: [
+                {title: 'Test template 1', content: 'Test 1'},
+                {title: 'Test template 2', content: 'Test 2'}
+            ]
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div th:include="menu::menu('categories')"></div>
+    <div class="panel panel-default">
+        <form th:action="@{/project/add(category_id=${category_id})}" th:object="${project}" method="post">
+            <div class="panel-heading">
+                <h1>Create Project</h1>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Name</span>
+                        <input th:type="text" class="form-control" th:field="*{name}" title="Name"/>
+                        <p th:errors="*{name}" class="alert alert-danger"></p>
+                    </div>
+                    <br/>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Short Description</span>
+                        <input th:type="text" class="form-control" th:field="*{shortDescr}" title="Short Description"/>
+                        <p th:errors="*{shortDescr}" class="alert alert-danger"></p>
+                    </div>
+                    <br/>
+
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Need Money</span>
+                            <input th:type="text" class="form-control" th:field="*{needMoney}" title="Need Money"/>
+                            <p th:errors="*{needMoney}" class="alert alert-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-left: 10px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Ending Date</span>
+                            <input class="form-control" th:field="*{endingDate}" title="Ending Date" type="date"/>
+                            <p th:errors="*{endingDate}" class="alert alert-danger"></p>
+                        </div>
+                        <br/>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Full Description</span>
+                        <textarea th:type="text" class="form-control" th:field="*{fullDescription.value}" title="Full Description"></textarea>
+                        <p th:errors="*{fullDescription.value}" class="alert alert-danger"></p>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <p>
+                    <button type="submit" class="btn btn-success">Add Project</button>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

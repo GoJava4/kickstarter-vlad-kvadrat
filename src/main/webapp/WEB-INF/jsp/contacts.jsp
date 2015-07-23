@@ -17,12 +17,12 @@
 <%--@elvariable id="quote" type="com.morkva.entities.Quote"--%>
 <c:set var="qt" value="${quote}"/>
 <div class="container">
-    <jsp:include page="menu.jsp">
-        <jsp:param name="activeLink" value="contacts"/>
-    </jsp:include>
-    <div class="panel panel-default">
-        CONTACTS =)
-    </div>
+        <jsp:include page="menu.jsp">
+            <jsp:param name="activeLink" value="contacts"/>
+        </jsp:include>
+        <div class="panel panel-default">
+            CONTACTS =)
+        </div>
 </div>
 </body>
 </html>

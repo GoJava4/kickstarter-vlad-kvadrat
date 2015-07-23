@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/resources/css/morkva.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Category</title>
+</head>
+<body>
+<div class="container">
+    <div th:include="menu :: menu('categories')"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p>
+                <h1 th:text="${category_name}"></h1>
+            </p>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li th:each="p:${projects}">
+                    <h2>
+                        <a th:href="@{/project/{pId}(pId=${p.id})}" th:text="${p.name}"></a>
+                    </h2>
+                    <br/>
+                </li>
+            </ul>
+        </div>
+        <div class="panel-footer">
+            <p sec:authorize="hasRole('ROLE_USER')">
+                <a class="btn btn-success" th:href="@{/project/add(category_id=${category_id})}">Add new project</a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
