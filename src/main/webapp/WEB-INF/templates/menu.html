@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/resources/css/morkva.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Contacts</title>
+</head>
+<body>
+<div th:fragment="menu(link)">
+    <div class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/home}" th:text="Kickstarter">Kickstarter</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li th:class="${link eq 'home'}? 'active'"><a th:href="@{/categories}">Home</a></li>
+                    <li th:class="${link eq 'categories'}? 'active'" class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Categories<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li th:each="c:${allCategories}">
+                                <a th:href="@{/category/{cId}/(cId=${c.id})}" th:text="${c.name}"></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li th:class="${link eq 'contacts'}? 'active'"><a th:href="@{/contacts}">Contacts</a></li>
+                    <li><a href="#">Link 3</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li sec:authorize="!isAuthenticated()">
+                        <form id="login-form" name='loginForm' class="form-inline"
+                              th:action="@{/login}" method='POST'>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="username" type='text' name='username'
+                                       value=''/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="password" type='password' name='password'/>
+                            </div>
+                            <input class="btn btn-sm btn-success" name="submit" type="submit" value="Login"/>
+
+                            <input type="hidden" name="${_csrf.parameterName}"
+                                   value="${_csrf.token}"/>
+
+                        </form>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" class="form-inline">
+                            <input type="submit" name="submit" value="logout" class="btn btn-sm btn-danger"/>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,9 +35,6 @@ public class ProjectController {
 
     @Autowired
     private QuestionService questionService;
-
-    @Autowired
-    private FullDescriptionService fullDescriptionService;
 
 
     @RequestMapping(value = "{projectId}", method = RequestMethod.GET)
@@ -99,8 +95,7 @@ public class ProjectController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String addProject(@Valid @ModelAttribute("project") Project project,
                              BindingResult bindingResult,
-                             @RequestParam(value = "category_id") int categoryId,
-                             ModelMap model) {
+                             @RequestParam(value = "category_id") int categoryId) {
         if (bindingResult.hasErrors()) {
             return "addProject";
         }
@@ -133,6 +128,11 @@ public class ProjectController {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
         webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    }
+
+    @ModelAttribute("allCategories")
+    public List<Category> getAllCategories() {
+        return categoryService.getAll();
     }
 
 

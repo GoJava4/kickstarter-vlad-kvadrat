@@ -40,4 +40,8 @@ public class Quote {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    public String getQuote() {
+        return "\"" + this.value + "\"" + "  (" + this.author + ")";
+    }
 }

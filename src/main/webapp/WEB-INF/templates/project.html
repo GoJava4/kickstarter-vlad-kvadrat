@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/resources/css/morkva.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Project</title>
+</head>
+<body>
+<div class="container">
+    <div th:include="menu::menu('categories')"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1 th:text="${project.name}"></h1></div>
+        <div class="panel-body">
+            <h3 th:utext="'Краткое описание - ' + ${project.shortDescr}"></h3>
+
+            <h3 th:text="'Нужно денег - ' + ${project.needMoney}"></h3>
+
+            <h3 th:text="'Уже собрано - ' + ${project.currentMoney}"></h3>
+
+            <h3 th:text="'Дата начала сборов - ' + ${project.addingDate}"></h3>
+
+            <h3 th:text="'Дата окончания - ' + ${project.endingDate}"></h3>
+
+            <h3 th:text="'Владелец проекта - ' + ${project.user.username}"></h3>
+            <br/>
+            <form th:action="@{/project/{pId}/donate(pId=${project.id})}" th:object="${payment}" method="post">
+                <label th:for="${#ids.next('amount')}">Donate:</label>
+                <input type="text" th:field="*{amount}"/>
+                <p th:errors="*{amount}" class="alert alert-danger"></p>
+                <p>
+                    <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-ok-sign" th:text="' Donate'"></span>
+                    </button>
+                </p>
+            </form>
+            <br/>
+            <div class="col-md-6">
+                    <div th:each="c:${comments}">
+                        <p th:text="'Username: ' + ${c.user.username}"></p>
+
+                        <p th:text="'Comment: ' + ${c.comment}"></p>
+
+                        <p th:text="'Date: ' + ${c.getDateTime()}"></p>
+
+                        <p>---------------------------------------------</p>
+                    </div>
+                <form th:action="@{/project/{pId}/comments/add(pId=${project.id})}" method="POST">
+                    <label>
+                        Your comment:
+                        <textarea name="comment" cols="40" rows="4"></textarea>
+                    </label>
+
+                    <p>
+                        <input type="submit" value="Отправить"/>
+                        <input type="reset" value="Очистить"/>
+                    </p>
+
+                </form>
+            </div>
+            <div class="col-md-6 left right">
+                    <div th:each="q:${questions}" class="row bottom">
+                        <div class="col-md-6 right">
+                            <p th:text="'Question: ' + ${q.question}"></p>
+
+                            <p th:text="'Author: ' + ${q.user.username}"></p>
+
+                            <p th:text="'Date: ' + ${q.date}"></p>
+                        </div>
+                        <div class="col-md-6">
+                                <div th:if="${#lists.isEmpty(q.answers)}">
+                                    <p>Ответа пока нет</p>
+                                    <a th:if="${#authentication.name eq project.user.login}" href="#">Дать ответ</a>
+                                </div>
+                                <div th:each="a:${q.answers}">
+                                    <p th:text="'Answer: ' + ${a.answer}"></p>
+
+                                    <p th:text="'Author: ' + ${a.user.username}"></p>
+
+                                    <p th:text="'Date: ' + ${a.date}"></p>
+                                </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
