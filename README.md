@@ -10,6 +10,14 @@
             <li>Spring JDBC Template</li>
         </ul>
     </li>
+    <li> UI
+        <ul>
+            <li>JSP</li>
+            <li>Thymeleaf</li>
+            <li>CSS</li>
+            <li>Bootstrap 3</li>
+        </ul>
+    </li>
     <li>Databases
         <ul>
             <li>JDBC</li>
