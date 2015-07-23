@@ -15,7 +15,7 @@
     <div class="panel panel-default">
         <div class="panel-heading"><h1 th:text="${project.name}"></h1></div>
         <div class="panel-body">
-            <h3 th:utext="'Краткое описание - ' + ${project.shortDescr}"></h3>
+            <h3 th:text="'Краткое описание - ' + ${project.shortDescr}"></h3>
 
             <h3 th:text="'Нужно денег - ' + ${project.needMoney}"></h3>
 
@@ -26,6 +26,8 @@
             <h3 th:text="'Дата окончания - ' + ${project.endingDate}"></h3>
 
             <h3 th:text="'Владелец проекта - ' + ${project.user.username}"></h3>
+
+            <p th:utext="${project.fullDescription.value}"></p>
             <br/>
             <form th:action="@{/project/{pId}/donate(pId=${project.id})}" th:object="${payment}" method="post">
                 <label th:for="${#ids.next('amount')}">Donate:</label>
