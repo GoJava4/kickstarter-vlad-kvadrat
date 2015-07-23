@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -34,7 +35,16 @@ public class StaticPagesController {
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String showTestPage() {
-        return "test";
+        return "loginPage";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String showLoginPage(@RequestParam(value = "error", required = false) String error, ModelMap modelMap) {
+        if(error != null) {
+            modelMap.addAttribute("error", "Invalid username or password");
+        }
+
+        return "loginPage";
     }
 
     @ModelAttribute("allCategories")
