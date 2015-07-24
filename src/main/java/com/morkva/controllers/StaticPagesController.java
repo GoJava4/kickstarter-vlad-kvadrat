@@ -1,16 +1,20 @@
 package com.morkva.controllers;
 
 import com.morkva.entities.Category;
+import com.morkva.entities.User;
 import com.morkva.services.CategoryService;
 import com.morkva.services.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -45,6 +49,28 @@ public class StaticPagesController {
         }
 
         return "loginPage";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String showSignUpPage(ModelMap modelMap) {
+        if (!modelMap.containsAttribute("user")) {
+            modelMap.addAttribute("user", new User());
+        }
+
+        return "SignUp";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public String signUp(@Valid @ModelAttribute("user") User user,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            return "SignUp";
+        }
+
+        //TODO Signup
+
+        return "SignUp";
     }
 
     @ModelAttribute("allCategories")
