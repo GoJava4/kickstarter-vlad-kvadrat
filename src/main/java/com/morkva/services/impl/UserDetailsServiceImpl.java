@@ -37,7 +37,7 @@ public class UserDetailsServiceImpl implements UserDetailsServiceExtended {
 
     @Override
     public void create(User user) {
-        user.setRole(userRoleDao.getById(2)); //ROLE_USER
+        user.setRole(userRoleDao.getByName("ROLE_USER"));
         user.setActive(true);
         userDao.create(user);
     }
@@ -54,26 +54,23 @@ public class UserDetailsServiceImpl implements UserDetailsServiceExtended {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Assembler assembler = new Assembler();
         User user = userDao.getByLogin(s);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
-        return assembler.buildUserFromUserEntity(user);
+        return buildUserFromUserEntity(user);
     }
 
-    private class Assembler {
-        org.springframework.security.core.userdetails.User buildUserFromUserEntity(com.morkva.entities.User userEntity) {
-            String username = userEntity.getLogin();
-            String password = userEntity.getPassword();
-            boolean enabled = userEntity.isActive();
-            boolean accountNonExpired = userEntity.isActive();
-            boolean credentialsNonExpired = userEntity.isActive();
-            boolean accountNonLocked = userEntity.isActive();
-            Collection<SimpleGrantedAuthority> authorities = new LinkedList<>();
-            authorities.add(new SimpleGrantedAuthority(userEntity.getRole().getName()));
-            org.springframework.security.core.userdetails.User user = new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
-            return user;
-        }
+    private org.springframework.security.core.userdetails.User buildUserFromUserEntity(com.morkva.entities.User userEntity) {
+        String username = userEntity.getLogin();
+        String password = userEntity.getPassword();
+        boolean enabled = userEntity.isActive();
+        boolean accountNonExpired = userEntity.isActive();
+        boolean credentialsNonExpired = userEntity.isActive();
+        boolean accountNonLocked = userEntity.isActive();
+        Collection<SimpleGrantedAuthority> authorities = new LinkedList<>();
+        authorities.add(new SimpleGrantedAuthority(userEntity.getRole().getName()));
+        org.springframework.security.core.userdetails.User user = new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+        return user;
     }
 }

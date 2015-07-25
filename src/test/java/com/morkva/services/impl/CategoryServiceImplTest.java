@@ -47,4 +47,18 @@ public class CategoryServiceImplTest {
         categoryService.delete(category);
         verify(categoryDAO).delete(category);
     }
+
+    @Test
+    public void testCreate() throws Exception {
+        Category category = new Category("Mocked category");
+        categoryService.create(category);
+        verify(categoryDAO).create(category);
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+        Category category = new Category("Mocked category");
+        categoryService.update(category);
+        verify(categoryDAO).update(category);
+    }
 }

@@ -18,8 +18,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
         Session currentSession = sessionFactory.getCurrentSession();
         Query query = currentSession.createQuery("from User where login = :login");
         query.setParameter("login", login);
-        User user = (User) query.uniqueResult();
-        return user;
+        return (User) query.uniqueResult();
     }
 
     @Override
