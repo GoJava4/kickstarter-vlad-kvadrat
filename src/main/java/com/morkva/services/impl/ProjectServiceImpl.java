@@ -130,7 +130,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     private PaymentBonus checkForBonusForPayment(Double amount, Project project) {
         List<PaymentBonus> paymentBonusesOfProject = paymentBonusDao.getPaymentBonusesOfProject(project);
-        int lastElem = paymentBonusesOfProject.size() - 1;
+        int amountOfBonuses = paymentBonusesOfProject.size();
+        if (amountOfBonuses == 0) return null; //no bonuses to check, just exit
+        int lastElem = amountOfBonuses - 1;
         for (int i = 0; i < lastElem; i++) {
             if (amount >= paymentBonusesOfProject.get(i).getMinMoney() && amount < paymentBonusesOfProject.get(i + 1).getMinMoney()) {
                 return checkForBonusesLeft(paymentBonusesOfProject.get(i));
