@@ -5,7 +5,9 @@ import com.morkva.model.dao.UserRoleDao;
 import com.morkva.services.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Service("userRoleService")
 public class UserRoleServiceImpl implements UserRoleService {
 

@@ -21,6 +21,32 @@
                         <input th:type="text" class="form-control input-sm" th:field="*{login}" title="Login"/>
                         <p th:errors="*{login}" class="alert alert-danger"></p>
                     </div>
+                    <br/>
+                    <div class="input-group">
+                        <span class="input-group-addon">Password</span>
+                        <input type="password" class="form-control input-sm" th:field="*{password}" title="Password"/>
+                        <p th:errors="*{password}" class="alert alert-danger"></p>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <span class="input-group-addon">Name</span>
+                        <input th:type="text" class="form-control input-sm" th:field="*{username}" title="Name"/>
+                        <p th:errors="*{username}" class="alert alert-danger"></p>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <span class="input-group-addon">e-mail</span>
+                        <input type="email" class="form-control input-sm" th:field="*{email}" title="Email"/>
+                        <p th:errors="*{email}" class="alert alert-danger"></p>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <span class="input-group-addon">Personal Info</span>
+                        <input type="text" class="form-control input-sm" th:field="*{personalInfo}" title="Personal Info"/>
+                        <p th:errors="*{personalInfo}" class="alert alert-danger"></p>
+                    </div>
+                    <br/>
+                    <button type="submit" class="btn btn-success" value="Register">Register</button>
                 </fieldset>
             </form>
         </div>

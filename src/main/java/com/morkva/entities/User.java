@@ -1,6 +1,11 @@
 package com.morkva.entities;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -9,7 +14,12 @@ public class User {
     @Id @GeneratedValue
     private Integer id;
 
+    @NotNull
+    @Size(min = 6, max = 16)
     private String login;
+
+    @NotNull
+    @Size(min = 8, message = "Must be grater than 8")
     private String password;
 
     @ManyToOne @JoinColumn(name = "role_id")
@@ -17,8 +27,11 @@ public class User {
 
     private boolean active;
 
+    @NotNull
     private String username;
 
+    @Email
+    @NotBlank
     private String email;
 
     @Column(name = "personal_info")
