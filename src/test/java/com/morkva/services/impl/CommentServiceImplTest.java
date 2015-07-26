@@ -95,4 +95,11 @@ public class CommentServiceImplTest {
         when(commentDao.getCommentsOfUser(user)).thenReturn(listOfComments);
         assertEquals(listOfComments, commentService.getCommentsOf(user));
     }
+
+    @Test
+    public void testSimpleCreateComment() throws Exception {
+        Comment comment = mock(Comment.class);
+        commentService.create(comment);
+        verify(commentDao).create(comment);
+    }
 }
