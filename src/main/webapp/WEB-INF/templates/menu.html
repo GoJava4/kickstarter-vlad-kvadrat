@@ -60,6 +60,11 @@
                             <input type="submit" name="submit" value="logout" class="btn btn-sm btn-danger"/>
                         </form>
                     </li>
+                    <li sec:authorize="!isAuthenticated()">
+                        <form th:action="@{/signup}" class="form-inline" method="get">
+                            <input type="submit" name="submit" value="register" class="btn btn-sm btn-warning"/>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
