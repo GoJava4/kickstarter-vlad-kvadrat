@@ -17,8 +17,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class CommentServiceImplTest {
 
@@ -62,9 +61,38 @@ public class CommentServiceImplTest {
 
 
     @Test
+    public void testGetById() throws Exception {
+        int id = 1;
+        commentService.getById(id);
+        verify(commentDao).getById(id);
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+        Comment comment = mock(Comment.class);
+        commentService.update(comment);
+        verify(commentDao).update(comment);
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+        Comment comment = mock(Comment.class);
+        commentService.delete(comment);
+        verify(commentDao).delete(comment);
+    }
+
+
+    @Test
     public void testGetCommentsOfProject() throws Exception {
         List<Comment> listOfComments = Arrays.asList(new Comment(), new Comment(), new Comment());
         when(commentDao.getCommentsOfProject(project)).thenReturn(listOfComments);
-        assertSame(listOfComments, commentService.getCommentsOfProject(project));
+        assertEquals(listOfComments, commentService.getCommentsOf(project));
+    }
+
+    @Test
+    public void testGetCommentsOfUser() throws Exception {
+        List<Comment> listOfComments = Arrays.asList(new Comment(), new Comment(), new Comment());
+        when(commentDao.getCommentsOfUser(user)).thenReturn(listOfComments);
+        assertEquals(listOfComments, commentService.getCommentsOf(user));
     }
 }

@@ -31,11 +31,6 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> getCommentsOfProject(Project project) {
-        return commentDao.getCommentsOfProject(project);
-    }
-
-    @Override
     public Comment getById(Integer id) {
         return commentDao.getById(id);
     }

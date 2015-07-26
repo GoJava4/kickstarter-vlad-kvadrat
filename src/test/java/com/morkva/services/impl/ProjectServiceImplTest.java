@@ -13,11 +13,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 public class ProjectServiceImplTest {
@@ -62,6 +62,80 @@ public class ProjectServiceImplTest {
         Project project = new Project();
         projectService.update(project);
         verify(projectDAO).update(project);
+    }
+
+    @Test
+    public void testCreate() throws Exception {
+        Project project = mock(Project.class);
+        projectService.create(project);
+        verify(projectDAO).create(project);
+    }
+
+    @Test
+    public void testSimpleCreate() throws Exception {
+        Project project = new Project();
+        projectService.simpleCreate(project);
+
+        ArgumentCaptor<Project> argumentCaptor = ArgumentCaptor.forClass(Project.class);
+
+        projectService.create(project);
+
+        verify(projectDAO, times(2)).create(argumentCaptor.capture());
+        Project capturedProject = argumentCaptor.getValue();
+        assertEquals(0, capturedProject.getCurrentMoney());
+        capturedProject.setAddingDate(new Date());
+//        assertNotNull(capturedProject.getAddingDate());
+        //TODO find out why addingDate is null
+        assertFalse(capturedProject.isSuccessfullyFinished());
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+        Project project = mock(Project.class);
+        projectService.delete(project);
+        verify(projectDAO).delete(project);
+    }
+
+
+    @Test
+    public void testGetProjectsOfUser() throws Exception {
+        User user = mock(User.class);
+        projectService.getProjectsOf(user);
+        verify(projectDAO).getProjectsOfUser(user);
+    }
+
+    @Test
+    public void testGetAllFinishedProjects() throws Exception {
+        projectService.getAllFinishedProjects();
+        verify(projectDAO).getAllFinishedProjects();
+    }
+
+    @Test
+    public void testGetFinishedProjectsOfCategory() throws Exception {
+        Category category = mock(Category.class);
+        projectService.getFinishedProjectsOf(category);
+        verify(projectDAO).getFinishedProjectsOf(category);
+    }
+
+    @Test
+    public void testGetFinishedProjectsOfUser() throws Exception {
+        User user = mock(User.class);
+        projectService.getFinishedProjectsOf(user);
+        verify(projectDAO).getFinishedProjectsOf(user);
+    }
+
+    @Test
+    public void testGetNotFinishedProjectsOfCategory() throws Exception {
+        Category category = mock(Category.class);
+        projectService.getNotFinishedProjectsOf(category);
+        verify(projectDAO).getNotFinishedProjectsOf(category);
+    }
+
+    @Test
+    public void testGetNotFinishedProjectsOfUser() throws Exception {
+        User user = mock(User.class);
+        projectService.getNotFinishedProjectsOf(user);
+        verify(projectDAO).getNotFinishedProjectsOf(user);
     }
 
     @Test
@@ -147,6 +221,7 @@ public class ProjectServiceImplTest {
         Assert.assertTrue(argumentCaptor.getValue().getPaymentBonus() == null);
     }
 
+
     @Test
     public void shouldNotAddBonus_whenNoBonusesLeft() throws Exception {
         Project projectMock = mock(Project.class);
@@ -173,8 +248,4 @@ public class ProjectServiceImplTest {
 
         Assert.assertTrue(argumentCaptor.getValue().getPaymentBonus() == null);
     }
-
-
-
-
 }

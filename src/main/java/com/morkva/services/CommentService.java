@@ -12,8 +12,6 @@ public interface CommentService {
 
     void create(Project project, User userByLogin, Date date, String commentValue);
 
-    List<Comment> getCommentsOfProject(Project project);
-
     Comment getById(Integer id);
 
     void create(Comment comment);

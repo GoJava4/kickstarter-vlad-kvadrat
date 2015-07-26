@@ -40,7 +40,7 @@ public class ProjectController {
     @RequestMapping(value = "{projectId}", method = RequestMethod.GET)
     public String showProject(Model model, @PathVariable int projectId) {
         Project project = projectService.getById(projectId);
-        List<Comment> comments = commentService.getCommentsOfProject(project);
+        List<Comment> comments = commentService.getCommentsOf(project);
         List<Question> questions = questionService.getQuestionsOfProject(project);
 
 
