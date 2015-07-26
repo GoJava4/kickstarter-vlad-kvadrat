@@ -7,8 +7,10 @@ import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import com.morkva.entities.Comment;
 import com.morkva.entities.Project;
+import com.morkva.entities.User;
 import com.morkva.model.dao.CommentDao;
 import com.morkva.model.dao.ProjectDao;
+import com.morkva.model.dao.UserDao;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,6 +43,9 @@ public class CommentDaoImplTest {
 
     @Autowired
     ProjectDao projectDao;
+
+    @Autowired
+    UserDao userDao;
 
     @Test
     public void testGetCommentsOfProject() throws Exception {
@@ -91,5 +96,12 @@ public class CommentDaoImplTest {
     public void testDelete() throws Exception {
         Comment comment = commentDao.getById(4);
         commentDao.delete(comment);
+    }
+
+    @Test
+    public void testGetCommentsOfUser() throws Exception {
+        User user = userDao.getById(2);
+        List <Comment> commentsOfProject = commentDao.getCommentsOfUser(user);
+        Assert.assertEquals(1, commentsOfProject.size());
     }
 }

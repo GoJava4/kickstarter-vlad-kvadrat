@@ -62,4 +62,11 @@ public class UserRoleDaoImplTest {
         UserRole userRole = userRoleDao.getById(3);
         userRoleDao.delete(userRole);
     }
+
+    @Test
+    public void testGetByName() throws Exception {
+        String name = "role_name 1";
+        UserRole userRole = userRoleDao.getByName(name);
+        Assert.assertEquals(name, userRole.getName());
+    }
 }

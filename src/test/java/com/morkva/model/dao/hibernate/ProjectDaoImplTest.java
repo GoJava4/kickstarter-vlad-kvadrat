@@ -64,6 +64,7 @@ public class ProjectDaoImplTest {
         User user = userDao.getById(3);
 
 //        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //TODO test date
 
         Project project = new Project.Builder()
                 .setName("New Name")
@@ -106,7 +107,7 @@ public class ProjectDaoImplTest {
             table = "projects"
     )
     public void testDelete() throws Exception {
-        Project project = projectDao.getById(5);
+        Project project = projectDao.getById(7);
         projectDao.delete(project);
     }
 
@@ -114,13 +115,47 @@ public class ProjectDaoImplTest {
     public void testGetProjectsOfCategory() throws Exception {
         Category category = categoryDao.getById(2);
         List<Project> projectsOfCategory = projectDao.getProjectsOfCategory(category);
-        Assert.assertTrue(projectsOfCategory.size() == 2);
+        Assert.assertEquals(3, projectsOfCategory.size());
     }
 
     @Test
     public void testGetProjectsOfUser() throws Exception {
         User user = userDao.getById(1);
         List<Project> projectList = projectDao.getProjectsOfUser(user);
-        Assert.assertEquals(3,projectList.size());
+        Assert.assertEquals(3, projectList.size());
+    }
+
+    @Test
+    public void testGetAllFinishedProjects() throws Exception {
+        List<Project> projectList = projectDao.getAllFinishedProjects();
+        Assert.assertEquals(5,projectList.size());
+    }
+
+    @Test
+    public void testGetFinishedProjectsOfCategory() throws Exception {
+        Category category = categoryDao.getById(1);
+        List<Project> projectList = projectDao.getFinishedProjectsOf(category);
+        Assert.assertEquals(3, projectList.size());
+    }
+
+    @Test
+    public void testGetFinishedProjectsOfUser() throws Exception {
+        User user = userDao.getById(1);
+        List<Project> projectList = projectDao.getFinishedProjectsOf(user);
+        Assert.assertEquals(3, projectList.size());
+    }
+
+    @Test
+    public void testGetNotFinishedProjectsOfCategory() throws Exception {
+        Category category = categoryDao.getById(1);
+        List<Project> projectList = projectDao.getNotFinishedProjectsOf(category);
+        Assert.assertEquals(1, projectList.size());
+    }
+
+    @Test
+    public void testGetNotFinishedProjectsOfUser() throws Exception {
+        User user = userDao.getById(3);
+        List<Project> projectList = projectDao.getNotFinishedProjectsOf(user);
+        Assert.assertEquals(1, projectList.size());
     }
 }

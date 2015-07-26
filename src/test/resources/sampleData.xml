@@ -109,8 +109,28 @@
 
               category_id="1"
               user_id="3"
-              full_description_id="7"
+              full_description_id="5"
               successfully_finished="1"/>
+    <projects id="6"
+              name="name 6"
+              short_description="Short Descr 6"
+              current_money="6000"
+              need_money="46500"
+
+              category_id="1"
+              user_id="2"
+              full_description_id="6"
+              successfully_finished="0"/>
+    <projects id="7"
+              name="name 7"
+              short_description="Short Descr 7"
+              current_money="7000"
+              need_money="45500"
+
+              category_id="2"
+              user_id="3"
+              full_description_id="7"
+              successfully_finished="0"/>
 
     <payment_statuses id="1"
                       status="payment_status 1"/>
